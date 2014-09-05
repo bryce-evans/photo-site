@@ -1,0 +1,209 @@
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+}
+#left-col {
+  width: 240px;
+  background-color: #fff;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px 0 0 10px;
+}
+#menu {
+
+  margin-right: 12px;
+  padding-bottom: 100px;
+  height: 100%;
+}
+#menu li {
+  display: block;
+  font-family: open sans;
+  border-right: 1px solid #CCC;
+  color: #9EBCC3;
+  letter-spacing: .1em;
+  font-size: 12px;
+  text-align: right;
+  padding: 0 10px;
+  text-transform: lowercase;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+}
+
+#menu li:hover {
+  color: #007095;
+  border-right: 2px solid #008CBA;
+  padding: 0 9px;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+}
+
+.selected {
+  color: #EC3F12 !important;
+  border-right: 2px solid #EC3F12 !important;
+  padding: 0 9px !important;
+}
+
+.separator {
+  border-right: 1px solid #ccc;
+}
+
+.separator:hover {
+  border-right: 1px solid #ccc !important;
+}
+#footer {
+  font-family: FreightSans Pro Bold;
+  font-weight: 900;
+  font-size: 12px;
+  color: #ccc;
+  position: fixed;
+  bottom: 10px;
+  left: 122px;
+}
+#logo {
+  font-family: FreightSans Pro Book;
+  font-size: 58px;
+  color: #333;
+  cursor: pointer;
+}
+
+.med-logo {
+  transform: scale(.9,.9) translate(-14px,-15px);
+}
+
+h1 {
+  font-family: FreightSans Pro Book;
+  font-size: 48px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+.info-page {
+  left: 280px;
+  top: 110px;
+  position: absolute;
+  font-family: open sans;
+  font-size: 12px;
+  color: #333;
+  opacity: 1;
+  -webkit-transition: opacity .5s, left .5s;
+  transition: opacity .5s, left .5s;
+}
+.info-page.hidden {
+  left: 300px;
+  opacity: 0;
+}
+.info-header {
+  letter-spacing: .25em;
+  font-size: 18px;
+  font-family: open sans;
+  margin-top: 14px;
+  color: #9EBCC3;
+}
+#contact-header-big {
+  letter-spacing: .2em;
+  font-size: 32px;
+  color: #E7E7E7;
+  display: none;
+}
+a.extern {
+  color: #007095;
+  text-decoration: none;
+}
+a.extern:hover {
+  color: #EC3F12;
+}
+a.extern:visited {
+  color: #008CBA;
+}
+#stage {
+
+  /* background-color: #00BFC6;*/
+  position: fixed;
+  left: 240px;
+  overflow: hidden;
+  z-index: -999;
+  width: 100%;
+  top: 0;
+  height: 100%;
+}
+#stage.hidden, #collage.hidden {
+  opacity: 0;
+}
+.col {
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  margin: 5px;
+}
+#col1 {
+  position: absolute;
+  left: 20px;
+  top: 33px;
+}
+#col2 {
+  position: absolute;
+  left: 420px;
+}
+#col3 {
+  position: absolute;
+  left: 825px;
+  top: 13px;
+}
+
+#stage div ul li {
+  width: 100%;
+  margin: 5px;
+  background-color: #EBEDEE;
+  display: block;
+}
+.tile {
+width: 180px;
+height: 180px;
+display: block;
+background-color: #A0D3E8;
+background-position: center;
+background-size: cover;
+float: left;
+margin: 0 5px 5px 0;
+}
+#collage {
+	position: fixed;
+width: 1300px;
+left: 230px;
+}
+
+#stage div ul li img {
+  cursor: pointer;
+}
+
+#stage div ul {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+}
+
+.blue {
+  color: #2298B4;
+}
+.spaceout {
+  letter-spacing: .8em;
+}
+
+.small {
+  font-size: 8px;
+}
+
+.photolettering {
+  font-size: 20px;
+  letter-spacing: .4em;
+  margin-left: 3.5em;
+  margin-top: -1.8ex;
+}
