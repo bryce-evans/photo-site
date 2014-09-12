@@ -6,7 +6,11 @@
 		<script src="js/jquery-2.1.js"></script>
 		<script src="js/flickr.js"></script>
 		<script src="js/listeners.js"></script>
+
+		<link rel="stylesheet" href="css/fonts.css" />
 		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/slider.css" />
+
 	</head>
 	<body>
 		<div id='left-col'>
@@ -37,8 +41,8 @@
 				<li id='tab-cats'>
 					<a>cats and other pets </a>
 				</li>
-				<li id='tab-sky'>
-					<a>skies </a>
+				<li id='tab-recent'>
+					<a>recent </a>
 				</li>
 
 				<li class='separator'>
@@ -89,15 +93,32 @@
 				<span style='opacity: 0;'>.</span>
 			</div>
 			some reviews! :D
+
 		</div>
 		<div id='retouching' class='info-page hidden'>
-			<div id='retouching-header' class='info-header'>
-				retouching
+
+			<div>
+				<div id="before_after_slider">
+
+					<div id="color">
+						<img src="http://i.picresize.com/images/2013/04/06/9pX4.png" width="640" height="400" alt="" />
+					</div>
+					<div id="black_white">
+						<img src="http://i.picresize.com/images/2013/04/06/2sJzq.png" width="640" height="400"  alt="black_white" />
+					</div>
+
+				</div>
+				<div style=''>
+					<ul id='slider-menu'>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
 			</div>
-			<div style='height: 15px;'>
-				<span style='opacity: 0;'>.</span>
-			</div>
-			a word on retouching! :D
 		</div>
 		<div id='about' class='info-page hidden' >
 			<div id='about-header' class='info-header'>
@@ -126,5 +147,6 @@
 
 			</ul>
 		</div>
+		<script src="js/slider.js"></script>
 	</body>
 </html>

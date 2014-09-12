@@ -1,3 +1,14 @@
+/*
+ * COLORS:
+ * 
+ * Orange: #EC3F12
+ * Green: #33A000
+ * Blue/Teal : #2298B4
+ * Smoke Blue: #9EBCC3
+ * 
+ */
+
+
 html {
   -webkit-font-smoothing: antialiased;
 }
@@ -33,6 +44,29 @@ ul {
   -webkit-transition: color 0.2s ease-in;
   -moz-transition: color 0.2s ease-in;
   -o-transition: color 0.2s ease-in;
+}
+#slider-menu {
+  padding-left: 100px;
+}
+#slider-menu li {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 5px 10px;
+  background-color: #9EBCC3;
+  -webkit-transition: margin 0.1s ease-in;
+  -moz-transition: margin 0.1s ease-in;
+  -o-transition: margin 0.1s ease-in;
+}
+
+#slider-menu li:hover {
+  margin-left: 0;
+  margin-right: 10px;
+  -webkit-transition: margin 0.1s ease-in;
+  -moz-transition: margin 0.1s ease-in;
+  -o-transition: margin 0.1s ease-in;
+  /*  -webkit-box-shadow: 4px 2px 12px 0px rgba(50, 138, 195, 0.55);
+   -moz-box-shadow: 4px 2px 12px 0px rgba(50, 138, 195, 0.55);
+   box-shadow: 4px 2px 12px 0px rgba(50, 138, 195, 0.55);*/
 }
 
 #menu li:hover {
@@ -95,10 +129,12 @@ h1 {
   opacity: 1;
   -webkit-transition: opacity .5s, left .5s;
   transition: opacity .5s, left .5s;
+  z-index: 2
 }
 .info-page.hidden {
   left: 300px;
   opacity: 0;
+  z-index: 1;
 }
 .info-header {
   letter-spacing: .25em;
@@ -165,19 +201,19 @@ a.extern:visited {
   display: block;
 }
 .tile {
-width: 180px;
-height: 180px;
-display: block;
-background-color: #A0D3E8;
-background-position: center;
-background-size: cover;
-float: left;
-margin: 0 5px 5px 0;
+  width: 180px;
+  height: 180px;
+  display: block;
+  background-color: #A0D3E8;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  margin: 0 5px 5px 0;
 }
 #collage {
-	position: fixed;
-width: 1300px;
-left: 230px;
+  position: fixed;
+  width: 1300px;
+  left: 230px;
 }
 
 #stage div ul li img {
