@@ -67,9 +67,9 @@ $(document).ready(function() {
     swapDisplayTo('#stage');
     displaySet(sets.cats);
   });
-  $('#tab-sky').click(function() {
+  $('#tab-recent').click(function() {
     swapDisplayTo('#stage');
-    displaySet(sets.skies);
+    displaySet(sets.stream);
   });
   $('#tab-about').click(function() {
     swapDisplayTo('#about');

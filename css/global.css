@@ -106,6 +106,7 @@ ul {
   font-size: 58px;
   color: #333;
   cursor: pointer;
+/*  text-transform: lowercase;*/
 }
 
 .med-logo {

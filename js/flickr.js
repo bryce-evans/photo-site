@@ -1,4 +1,5 @@
 const FLICKR = {
+  URL : 'https://api.flickr.com/services/rest/',
   KEY : 'd86d9b82925db25bbeb0bf49d7e97e13',
   SECRET : 'b31fc7c4e096aa0e',
   ID : '96143629@N07'
@@ -42,15 +43,47 @@ const sets = {
     id : '72157635020081930',
     links : []
   },
+  stream : {
+    current_page : '1',
+    pages : '1',
+    links : []
+  }
 };
 
+genLinksFromStream = function() {
+
+  $.ajax({
+    type : 'POST',
+    url : FLICKR.URL,
+    data : {
+      method : 'flickr.people.getPhotos',
+      api_key : FLICKR.KEY,
+      format : 'json',
+      dataType : 'jsonp',
+      user_id : FLICKR.ID,
+    }
+  }).done(function(response) {
+    var data = eval(response);
+    var photos = data.photos.photo;
+    for (var i = 0; i < photos.length; i++) {
+      var photo = photos[i];
+      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+      sets.stream.links.push(url);
+    }
+  });
+}
 genLinks = function(callback) {
+  genLinksFromStream();
+
   this.waiting_on = Object.keys(sets).length;
   for (set in sets) {
+    if (set === 'stream') {
+      break;
+    }
     if (sets.hasOwnProperty(set)) {
       $.ajax({
         type : 'POST',
-        url : 'https://api.flickr.com/services/rest/',
+        url : FLICKR.URL,
         data : {
           method : 'flickr.photosets.getPhotos',
           api_key : FLICKR.KEY,
@@ -59,12 +92,15 @@ genLinks = function(callback) {
           photoset_id : sets[set].id,
         }
       }).done( function(response) {
+
         var data = eval(response);
         var photos = data.photoset.photo;
         for (var i = 0; i < photos.length; i++) {
           var photo = photos[i];
           var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+
           for (key in sets) {
+
             if (sets[key].id == data.photoset.id) {
               sets[key].links.push(url);
               allLinks[url] = true;
