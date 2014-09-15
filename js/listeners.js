@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     // update display
     if (hit && hit.context) {
-      console.log(hit.context.id);
+      //console.log(hit.context.id);
     }
     // update current object
     UI.currentTab = hit;
