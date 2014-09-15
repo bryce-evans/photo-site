@@ -6,7 +6,7 @@ const FLICKR = {
 };
 
 // a set implementation of links. key : <string> url, value: <bool> (true)
-const allLinks = [];
+var allLinks = {};
 
 const sets = {
   performances : {
@@ -97,7 +97,6 @@ genLinks = function(callback) {
 
         var data = eval(response);
         var photos = data.photoset.photo;
-        var allLinksSet = {};
         for (var i = 0; i < photos.length; i++) {
           var photo = photos[i];
           var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
@@ -106,7 +105,9 @@ genLinks = function(callback) {
 
             if (sets[key].id == data.photoset.id) {
               sets[key].links.push(url);
-              allLinksSet[url] = true;
+
+              allLinks[photo.id] = url;
+
             }
           }
         }
@@ -117,9 +118,12 @@ genLinks = function(callback) {
 
         // convert set to list
 
-        for (var url in allLinksSet) {
-          allLinks.push(url);
-        }
+        // for (var key in allLinksSet) {
+        // allLinks.push({
+        // 'id' : key,
+        // 'url' : allLinksSet[key],
+        // });
+        // }
 
       }.bind(this));
     }
@@ -145,8 +149,17 @@ displayCollage = function() {
   }
   this.collageLoaded = true;
   // ret
-  for (var i = allLinks.length; i >= 0; i--) {
-    $('#collage-container').append('<li><div class="tile" style="background-image: url(' + allLinks[Math.random() * i | 0] + ')"></div></li>');
+
+  var ids = Object.keys(allLinks);
+
+  ids.sort(function() {
+    return Math.random() - 0.5;
+  });
+
+  if (ids.forEach) {
+    ids.forEach(function(id) {
+      $('#collage-container').append('<li><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
+    });
   }
 
   // jQuery('<div/>', {
@@ -167,5 +180,8 @@ clearPhotos = function() {
 getFlickrURL = function(farm, server, id, secret, size) {
   size = size || '';
   return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
+}
+getFlickrStreamURL = function(id) {
+  return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
 }
 
