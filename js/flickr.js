@@ -8,13 +8,13 @@ const FLICKR = {
 getFlickrStreamURL = function(id) {
   return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
 }
-
-Photo = function(id,url) {
- 	this.id = id;
- 	this.url = url;
- 	this.getStreamURL = function() {return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + this.id;};
+Photo = function(id, url) {
+  this.id = id;
+  this.url = url;
+  this.getStreamURL = function() {
+    return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + this.id;
+  };
 }
- 
 // a set implementation of links. key : <string> url, value: <bool> (true)
 var allLinks = {};
 
@@ -80,7 +80,7 @@ genLinksFromStream = function() {
     for (var i = 0; i < photos.length; i++) {
       var photo = photos[i];
       var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
-      sets.stream.photos.push(new Photo(photo.id,url));
+      sets.stream.photos.push(new Photo(photo.id, url));
     }
   });
 }
@@ -179,8 +179,13 @@ displayCollage = function() {
 }
 populatePhotos = function(set_data) {
   for (var i = 0; i < set_data.photos.length; i++) {
-    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li><a href="' +  set_data.photos[i].getStreamURL() +'" target="_blank"><img width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    var url = set_data.photos[i].getStreamURL();
+    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="'+url+'" target="_blank"><img class="exif" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
+  $(".exif").click(function() {
+
+    getExif(this.id);
+  });
 }
 clearPhotos = function() {
   for (var i = 1; i < 4; i++) {
@@ -191,5 +196,21 @@ getFlickrURL = function(farm, server, id, secret, size) {
   size = size || '';
   return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
 }
+getExif = function(id) {
+  $.ajax({
+    type : 'POST',
+    url : FLICKR.URL,
+    data : {
+      method : 'flickr.photos.getExif',
+      api_key : FLICKR.KEY,
+      photo_id : id,
+      format : 'json',
+      dataType : 'jsonp',
+      user_id : FLICKR.ID,
+    }
+  }).done( function(response) {
+    console.log(response);
+  }.bind(this));
 
+}
 

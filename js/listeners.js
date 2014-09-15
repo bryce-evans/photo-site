@@ -8,9 +8,9 @@ ui = function() {
 UI = new ui();
 
 $(document).ready(function() {
-  
+
   UI.init();
-  
+
   swapDisplayTo = function(id) {
 
     //no change
@@ -83,6 +83,15 @@ $(document).ready(function() {
   });
   $('#tab-contact').click(function() {
     swapDisplayTo('#contact');
+  });
+
+  $(".large").click(function() {
+  	debugger;
+  	alert('hi');
+    // var img = $(this.id);
+    // var data = EXIF.getTag(img, "Make") + " "
+    // EXIF.getTag(img, "Model");
+    // console.log(data);
   });
 
 });
