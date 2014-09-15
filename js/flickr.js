@@ -5,7 +5,9 @@ const FLICKR = {
   ID : '96143629@N07'
 };
 
-const allLinks = {};
+// a set implementation of links. key : <string> url, value: <bool> (true)
+const allLinks = [];
+
 const sets = {
   performances : {
     id : '72157641927940914',
@@ -95,6 +97,7 @@ genLinks = function(callback) {
 
         var data = eval(response);
         var photos = data.photoset.photo;
+        var allLinksSet = {};
         for (var i = 0; i < photos.length; i++) {
           var photo = photos[i];
           var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
@@ -103,7 +106,7 @@ genLinks = function(callback) {
 
             if (sets[key].id == data.photoset.id) {
               sets[key].links.push(url);
-              allLinks[url] = true;
+              allLinksSet[url] = true;
             }
           }
         }
@@ -111,6 +114,13 @@ genLinks = function(callback) {
         if (this.waiting_on == 0) {
           callback();
         }
+
+        // convert set to list
+
+        for (var url in allLinksSet) {
+          allLinks.push(url);
+        }
+
       }.bind(this));
     }
   }
@@ -134,8 +144,9 @@ displayCollage = function() {
     return;
   }
   this.collageLoaded = true;
-  for (url in allLinks) {
-    $('#collage-container').append('<li><div class="tile" style="background-image: url(' + url + ')"></div></li>');
+  // ret
+  for (var i = allLinks.length; i >= 0; i--) {
+    $('#collage-container').append('<li><div class="tile" style="background-image: url(' + allLinks[Math.random() * i | 0] + ')"></div></li>');
   }
 
   // jQuery('<div/>', {
