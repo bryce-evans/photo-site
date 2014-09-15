@@ -107,6 +107,7 @@ genSetLinks = function(set, display) {
     return;
   }
 
+  // add a callback to display this set if images are already loading
   if (set.photos.length != 0 || UI.allLinksLoading) {
     UI.requestToShow(set);
     return;
@@ -161,7 +162,7 @@ genAllSetLinks = function() {
 
   for (set in sets) {
     if (set === 'stream' || sets[set].photos.length != 0) {
-      break;
+      continue;
     }
 
     if (sets.hasOwnProperty(set)) {
@@ -179,24 +180,29 @@ genAllSetLinks = function() {
 
         var data = eval(response);
         var photos = data.photoset.photo;
+
+        var this_set_name;
+        for (set_name in sets) {
+          if (sets[set_name].id == data.photoset.id) {
+            this_set_name = set_name;
+            break;
+          }
+        }
+
         for (var i = 0; i < photos.length; i++) {
           var photo = photos[i];
           var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
 
-          for (key in sets) {
+          sets[this_set_name].photos.push(new Photo(photo.id, url));
 
-            if (sets[key].id == data.photoset.id) {
-              sets[key].photos.push(new Photo(photo.id, url));
+          allLinks[photo.id] = url;
 
-              allLinks[photo.id] = url;
-
-            }
-          }
         }
         waiting_on--;
         // last set arrives!
         if (waiting_on == 0) {
           UI.allLinksLoaded = true;
+          UI.allLinksLoading = false;
 
           // collage requested to be shown before all links loaded
           if (UI.requestedToShow) {
@@ -227,7 +233,7 @@ populateCollage = function() {
   }
 
   // put a callback to populate imgs after links load
-  if (!UI.allLinksLoading) {
+  if (!UI.allLinksLoaded && !UI.allLinksLoading) {
     genAllSetLinks();
     return;
   }
