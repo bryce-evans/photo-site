@@ -102,7 +102,8 @@ ul {
 }
 
 .separator {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ccc !important;
+  cursor: default !important;
 }
 
 .separator:hover {
