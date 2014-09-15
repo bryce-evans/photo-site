@@ -1,13 +1,12 @@
 /*
  * COLORS:
- * 
+ *
  * Orange: #EC3F12
  * Green: #33A000
  * Blue/Teal : #2298B4
  * Smoke Blue: #9EBCC3
- * 
+ *
  */
-
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -106,7 +105,7 @@ ul {
   font-size: 58px;
   color: #333;
   cursor: pointer;
-/*  text-transform: lowercase;*/
+  /*  text-transform: lowercase;*/
 }
 
 .med-logo {
@@ -135,7 +134,7 @@ h1 {
 .info-page.hidden {
   left: 300px;
   opacity: 0;
-  z-index: 1;
+  z-index: -1;
 }
 .info-header {
   letter-spacing: .25em;
@@ -161,22 +160,18 @@ a.extern:visited {
   color: #008CBA;
 }
 #stage {
-  
 
   position: absolute;
-  
-
   left: 140px;
-  
-
   margin-left: 100px;
   z-index: 2;
   width: 100%;
   top: 0;
-  
 }
 #stage.hidden, #collage.hidden {
   opacity: 0;
+  z-index: -1;
+  display: none;
 }
 .col {
   width: 400px;
@@ -215,7 +210,7 @@ a.extern:visited {
   margin: 0 5px 5px 0;
 }
 #collage {
-  position: fixed;
+  position: absolute;
   width: 1300px;
   left: 230px;
 }
