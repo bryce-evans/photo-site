@@ -3,6 +3,12 @@ ui = function() {
     this.currentTab = $('#logo');
     this.currentDisplay = $('#logo');
     this.stageShown = true;
+    this.allLinksLoading = false;
+    this.allLinksLoaded = false;
+    this.collageLoaded = false;
+    this.requestToShowCollage = function() {
+      this.showCollage = true;
+    };
   }
 }
 UI = new ui();
@@ -70,31 +76,32 @@ $(document).ready(function() {
   }
   UI.displayCollage = function() {
     UI.highlightTab('#tab-collage');
-     UI.setNavAnchor('collage');
+    UI.setNavAnchor('collage');
+    populateCollage();
     swapDisplayTo('#collage');
-    displayCollage();
+
   }
   UI.displayPerformances = function() {
     UI.highlightTab('#tab-performances');
-     UI.setNavAnchor('performances');
+    UI.setNavAnchor('performances');
     swapDisplayTo('#stage');
     displaySet(sets.performances);
   }
   UI.displayPortraits = function() {
     UI.highlightTab('#tab-portraits');
-     UI.setNavAnchor('portraits');
+    UI.setNavAnchor('portraits');
     swapDisplayTo('#stage');
     displaySet(sets.portraits);
   }
   UI.displayCats = function() {
     UI.highlightTab('#tab-cats');
-     UI.setNavAnchor('cats');
+    UI.setNavAnchor('cats');
     swapDisplayTo('#stage');
     displaySet(sets.cats);
   }
   UI.displayRecent = function() {
     UI.highlightTab('#tab-recent');
-     UI.setNavAnchor('recent');
+    UI.setNavAnchor('recent');
     swapDisplayTo('#stage');
     displaySet(sets.stream);
   }
@@ -104,17 +111,17 @@ $(document).ready(function() {
   }
   UI.displayRetouching = function() {
     UI.highlightTab('#tab-retouching');
-     UI.setNavAnchor('retouching');
+    UI.setNavAnchor('retouching');
     swapDisplayTo('#retouching');
   }
   UI.displayReviews = function() {
     UI.highlightTab('#tab-reviews');
-     UI.setNavAnchor('reviews');
+    UI.setNavAnchor('reviews');
     swapDisplayTo('#reviews');
   }
   UI.displayContact = function() {
     UI.highlightTab('#tab-contact');
-     UI.setNavAnchor('contact');
+    UI.setNavAnchor('contact');
     swapDisplayTo('#contact');
   }
   $('#tab-featured').click(function() {
@@ -151,5 +158,7 @@ $(document).ready(function() {
   $('#tab-contact').click(function() {
     UI.displayContact();
   });
+
+  genAllSetLinks();
 
 });
