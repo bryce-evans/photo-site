@@ -25,6 +25,11 @@ var doHashCheck = (function() {
     // fnName should be a native function, not a host method
     if (UI.navPages[fnName]) {
       UI.navPages[fnName]();
+    } else {
+    	// main entry page
+      UI.highlightTab('#tab-featured');
+      swapDisplayTo('#stage');
+      displaySet(sets.featured50);
     }
   }
 })(this);
