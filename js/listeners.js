@@ -43,55 +43,75 @@ $(document).ready(function() {
     UI.currentTab = hit;
   });
 
-  $('#tab-featured').click(function() {
+  UI.displayFeatured = function() {
     swapDisplayTo('#stage');
     displaySet(sets.featured50);
-
+  }
+  UI.displayCollage = function() {
+    swapDisplayTo('#collage');
+    displayCollage();
+  }
+  UI.displayPerformances = function() {
+    swapDisplayTo('#stage');
+    displaySet(sets.performances);
+  }
+  UI.displayPortraits = function() {
+    swapDisplayTo('#stage');
+    displaySet(sets.portraits);
+  }
+  UI.displayCats = function() {
+    swapDisplayTo('#stage');
+    displaySet(sets.cats);
+  }
+  UI.displayRecent = function() {
+    swapDisplayTo('#stage');
+    displaySet(sets.stream);
+  }
+  UI.displayAbout = function() {
+    swapDisplayTo('#about');
+  }
+  UI.displayRetouching = function() {
+    swapDisplayTo('#retouching');
+  }
+  UI.displayReviews = function() {
+    swapDisplayTo('#reviews');
+  }
+  UI.displayContact = function() {
+    swapDisplayTo('#contact');
+  }
+  $('#tab-featured').click(function() {
+    displayFeatured();
   });
 
   $('#tab-collage').click(function() {
-    swapDisplayTo('#collage');
     displayCollage();
   });
 
   $('#tab-performances').click(function() {
-    swapDisplayTo('#stage');
-    displaySet(sets.performances);
+    displayPerformances();
   });
 
   $('#tab-portraits').click(function() {
-    swapDisplayTo('#stage');
-    displaySet(sets.portraits);
+    displayPortraits();
   });
   $('#tab-cats').click(function() {
-    swapDisplayTo('#stage');
-    displaySet(sets.cats);
+    displayCats();
   });
   $('#tab-recent').click(function() {
-    swapDisplayTo('#stage');
-    displaySet(sets.stream);
+    displayRecent();
   });
   $('#tab-about').click(function() {
-    swapDisplayTo('#about');
+    displayAbout();
   });
 
   $('#tab-retouching').click(function() {
-    swapDisplayTo('#retouching');
+    displayRetouching();
   });
   $('#tab-reviews').click(function() {
-    swapDisplayTo('#reviews');
+    displayReviews();
   });
   $('#tab-contact').click(function() {
-    swapDisplayTo('#contact');
-  });
-
-  $(".large").click(function() {
-  	debugger;
-  	alert('hi');
-    // var img = $(this.id);
-    // var data = EXIF.getTag(img, "Make") + " "
-    // EXIF.getTag(img, "Model");
-    // console.log(data);
+    displayContact();
   });
 
 });
