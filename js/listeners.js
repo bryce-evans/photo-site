@@ -163,6 +163,6 @@ $(document).ready(function() {
     UI.displayContact();
   });
 
-  genAllSetLinks();
+ 
 
 });

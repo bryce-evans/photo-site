@@ -148,6 +148,7 @@ genSetLinks = function(set, display) {
 // gets the links to a set
 genAllSetLinks = function() {
 
+  // this function can only run once!
   if (UI.allLinksLoaded || UI.allLinksLoading) {
     return;
   }
@@ -156,7 +157,7 @@ genAllSetLinks = function() {
   // todo - wait on stream photos in semaphore
   genLinksFromStream();
 
-  var waiting_on = Object.keys(sets).length - 1;
+  var waiting_on = Object.keys(sets).length - 2;
 
   for (set in sets) {
     if (set === 'stream' || sets[set].photos.length != 0) {
@@ -199,11 +200,11 @@ genAllSetLinks = function() {
 
           // collage requested to be shown before all links loaded
           if (UI.requestedToShow) {
-            UI.requestedToShow = undefined;
-            if(UI.requestedtoShow.name === 'collage'){
-            populateCollage();
+            UI.requestToShow = undefined;
+            if (UI.requestedToShow === 'collage') {
+              populateCollage();
             } else {
-            	displaySet(UI.requestedToShow)
+              displaySet(UI.requestedToShow)
             }
           }
         }
@@ -220,11 +221,17 @@ displaySet = function(set_data) {
   populatePhotos(set_data);
 }
 populateCollage = function() {
-  // put a callback to populate imgs after links load
+
   if (!UI.allLinksLoaded) {
-    UI.requestToShow = 'collage';
+    UI.requestToShow('collage');
+  }
+
+  // put a callback to populate imgs after links load
+  if (!UI.allLinksLoading) {
+    genAllSetLinks();
     return;
   }
+
   if (!UI.collageLoaded) {
     UI.collageLoaded = true;
     var ids = Object.keys(allLinks);
@@ -255,6 +262,9 @@ populatePhotos = function(set_data) {
   $(".exif").click(function() {
     getExif(this.id);
   });
+
+  // preload all photos if not done yet
+  genAllSetLinks();
 }
 
 window.fadeIn = function(obj) {
