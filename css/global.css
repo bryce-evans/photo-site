@@ -161,15 +161,19 @@ a.extern:visited {
   color: #008CBA;
 }
 #stage {
+  
 
-  /* background-color: #00BFC6;*/
-  position: fixed;
-  left: 240px;
-  overflow: hidden;
-  z-index: -999;
+  position: absolute;
+  
+
+  left: 140px;
+  
+
+  margin-left: 100px;
+  z-index: 2;
   width: 100%;
   top: 0;
-  height: 100%;
+  
 }
 #stage.hidden, #collage.hidden {
   opacity: 0;
@@ -187,18 +191,17 @@ a.extern:visited {
 }
 #col2 {
   position: absolute;
-  left: 420px;
+  left: 425px;
 }
 #col3 {
   position: absolute;
-  left: 825px;
+  left: 830px;
   top: 13px;
 }
 
 #stage div ul li {
   width: 100%;
-  margin: 5px;
-  background-color: #EBEDEE;
+  padding: 5px 5px 0 0;
   display: block;
 }
 .tile {
