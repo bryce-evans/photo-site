@@ -6,9 +6,13 @@ ui = function() {
     this.allLinksLoading = false;
     this.allLinksLoaded = false;
     this.collageLoaded = false;
-    this.requestToShowCollage = function() {
-      this.showCollage = true;
-    };
+
+    // data to be shown after links are loaded
+    // used in a callback to genSetLinks
+    this.requestToShow = function(set_data) {
+      this.requestedToShow = set_data;
+    }
+    this.requestedToShow = undefined;
   }
 }
 UI = new ui();

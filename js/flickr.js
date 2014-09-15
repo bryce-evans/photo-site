@@ -107,7 +107,8 @@ genSetLinks = function(set, display) {
     return;
   }
 
-  if (set.photos.length != 0) {
+  if (set.photos.length != 0 || UI.allLinksLoading) {
+    UI.requestToShow(set);
     return;
   }
 
@@ -155,7 +156,7 @@ genAllSetLinks = function() {
   // todo - wait on stream photos in semaphore
   genLinksFromStream();
 
-  var waiting_on = Object.keys(sets).length-1;
+  var waiting_on = Object.keys(sets).length - 1;
 
   for (set in sets) {
     if (set === 'stream' || sets[set].photos.length != 0) {
@@ -193,13 +194,17 @@ genAllSetLinks = function() {
         }
         waiting_on--;
         // last set arrives!
-        if ( waiting_on == 0) {
+        if (waiting_on == 0) {
           UI.allLinksLoaded = true;
 
           // collage requested to be shown before all links loaded
-          if (UI.showCollage) {
-            UI.showCollage = false;
+          if (UI.requestedToShow) {
+            UI.requestedToShow = undefined;
+            if(UI.requestedtoShow.name === 'collage'){
             populateCollage();
+            } else {
+            	displaySet(UI.requestedToShow)
+            }
           }
         }
       }.bind(this));
@@ -217,7 +222,7 @@ displaySet = function(set_data) {
 populateCollage = function() {
   // put a callback to populate imgs after links load
   if (!UI.allLinksLoaded) {
-    UI.requestToShowCollage();
+    UI.requestToShow = 'collage';
     return;
   }
   if (!UI.collageLoaded) {
@@ -235,6 +240,7 @@ populateCollage = function() {
     }
   }
 }
+// populates the stage with the photos from <Obj> set_data
 populatePhotos = function(set_data) {
   // load if not loaded yet
   if (set_data.photos.length === 0) {
@@ -247,7 +253,6 @@ populatePhotos = function(set_data) {
     $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
-
     getExif(this.id);
   });
 }
