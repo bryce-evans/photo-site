@@ -12,7 +12,7 @@ Photo = function(id, url) {
   this.id = id;
   this.url = url;
   this.getStreamURL = function() {
-    return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + this.id;
+    return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
   };
 }
 // a set implementation of links. key : <string> url, value: <bool> (true)
@@ -20,49 +20,60 @@ var allLinks = {};
 
 const sets = {
   performances : {
+    name : 'performances',
     id : '72157641927940914',
     photos : []
   },
   featured50 : {
+    name : 'featured50',
     id : '72157635671751723',
     photos : []
   },
   portraits : {
+    name : 'portraits',
     id : '72157635020065114',
     photos : []
   },
   cats : {
+    name : 'cats',
     id : '72157638337318724',
     photos : []
   },
   bw : {
+    name : 'bw',
     id : '72157639080128075',
     photos : []
   },
   skies : {
+    name : 'skies',
     id : '72157637070898063',
     photos : []
   },
   macro : {
+    name : 'macro',
     id : '72157635013739675',
     photos : []
   },
   wildlife : {
+    name : 'wildlife',
     id : '72157635015093339',
     photos : []
   },
   food : {
+    name : 'food',
     id : '72157635020081930',
     photos : []
   },
   stream : {
+    name : 'stream',
     current_page : '1',
     pages : '1',
     photos : []
   }
 };
 
-genLinksFromStream = function() {
+// 
+genLinksFromStream = function(display) {
 
   $.ajax({
     type : 'POST',
@@ -82,16 +93,68 @@ genLinksFromStream = function() {
       var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
       sets.stream.photos.push(new Photo(photo.id, url));
     }
+    if(display) {
+    	displaySet(sets.stream);
+    }
   });
 }
-genLinks = function(callback) {
+// generates all links to a set
+// displays the set on stage if display = true
+genSetLinks = function(set, display) {
+
+  if (set.name === 'stream') {
+    genLinksFromStream(display);
+    return;
+  }
+
+  if (set.photos.length != 0) {
+    return;
+  }
+
+  $.ajax({
+    type : 'POST',
+    url : FLICKR.URL,
+    data : {
+      method : 'flickr.photosets.getPhotos',
+      api_key : FLICKR.KEY,
+      format : 'json',
+      dataType : 'jsonp',
+      photoset_id : set.id,
+    }
+  }).done( function(response) {
+
+    var data = eval(response);
+    var photos = data.photoset.photo;
+    for (var i = 0; i < photos.length; i++) {
+      var photo = photos[i];
+      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+
+      for (key in sets) {
+
+        if (sets[key].id == data.photoset.id) {
+          sets[key].photos.push(new Photo(photo.id, url));
+          allLinks[photo.id] = url;
+        }
+      }
+    }
+
+    if (display) {
+      displaySet(set);
+    }
+
+  }.bind(this));
+}
+// gets the links to a set and calls callback at the end
+// if no set given, loads all sets
+genAllSetLinks = function() {
+
   genLinksFromStream();
 
-  this.waiting_on = Object.keys(sets).length;
   for (set in sets) {
-    if (set === 'stream') {
+    if (set === 'stream' || sets[set].photos.length != 0) {
       break;
     }
+
     if (sets.hasOwnProperty(set)) {
       $.ajax({
         type : 'POST',
@@ -101,7 +164,7 @@ genLinks = function(callback) {
           api_key : FLICKR.KEY,
           format : 'json',
           dataType : 'jsonp',
-          photoset_id : sets[set].id,
+          photoset_id : set.id,
         }
       }).done( function(response) {
 
@@ -121,30 +184,11 @@ genLinks = function(callback) {
             }
           }
         }
-        this.waiting_on--;
-        if (this.waiting_on == 0) {
-          callback();
-        }
-
-        // convert set to list
-
-        // for (var key in allLinksSet) {
-        // allLinks.push({
-        // 'id' : key,
-        // 'url' : allLinksSet[key],
-        // });
-        // }
 
       }.bind(this));
     }
   }
 }
-$(document).ready(function() {
-  genLinks(function() {
-    displaySet(sets.featured50);
-  });
-});
-
 jsonFlickrApi = function(data) {
   return data;
 }
@@ -178,9 +222,15 @@ displayCollage = function() {
   // }).appendTo($('#collage').getChildren()[0]);
 }
 populatePhotos = function(set_data) {
+  // load if not loaded yet
+  if (set_data.photos.length === 0) {
+    genSetLinks(set_data, true);
+    return;
+  }
+
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="'+url+'" target="_blank"><img  onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
 
@@ -189,9 +239,8 @@ populatePhotos = function(set_data) {
 }
 
 window.fadeIn = function(obj) {
-    $(obj).fadeIn(1000);
+  $(obj).fadeIn(1000);
 }
-
 clearPhotos = function() {
   for (var i = 1; i < 4; i++) {
     $('#photo-col' + i).empty();

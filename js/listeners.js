@@ -1,7 +1,7 @@
 ui = function() {
   this.init = function() {
-    this.currentTab = $('#tab-featured');
-    this.currentDisplay = $('#stage');
+    this.currentTab = $('#logo');
+    this.currentDisplay = $('#logo');
     this.stageShown = true;
   }
 }
@@ -20,7 +20,7 @@ $(document).ready(function() {
     } else {
       UI.currentDisplay.addClass('hidden');
     }
-    // show new display
+    // show new UI.display
     var element = $(id);
     element.removeClass('hidden');
     UI.currentDisplay = element;
@@ -35,7 +35,7 @@ $(document).ready(function() {
       UI.currentTab.removeClass('selected');
     }
 
-    // update display
+    // update UI.display
     if (hit && hit.context) {
       //console.log(hit.context.id);
     }
@@ -80,38 +80,38 @@ $(document).ready(function() {
     swapDisplayTo('#contact');
   }
   $('#tab-featured').click(function() {
-    displayFeatured();
+    UI.displayFeatured();
   });
 
   $('#tab-collage').click(function() {
-    displayCollage();
+    UI.displayCollage();
   });
 
   $('#tab-performances').click(function() {
-    displayPerformances();
+    UI.displayPerformances();
   });
 
   $('#tab-portraits').click(function() {
-    displayPortraits();
+    UI.displayPortraits();
   });
   $('#tab-cats').click(function() {
-    displayCats();
+    UI.displayCats();
   });
   $('#tab-recent').click(function() {
-    displayRecent();
+    UI.displayRecent();
   });
   $('#tab-about').click(function() {
-    displayAbout();
+    UI.displayAbout();
   });
 
   $('#tab-retouching').click(function() {
-    displayRetouching();
+    UI.displayRetouching();
   });
   $('#tab-reviews').click(function() {
-    displayReviews();
+    UI.displayReviews();
   });
   $('#tab-contact').click(function() {
-    displayContact();
+    UI.displayContact();
   });
 
 });
