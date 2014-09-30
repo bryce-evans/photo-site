@@ -3,10 +3,17 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: #282828;
 }
 #page {
   width: 800px;
   margin: auto auto;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 400px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
 }
 #title {
   border-bottom: 3px solid #2298B4;
@@ -23,26 +30,14 @@ body {
 #subtitle {
 
   font-size: 14px;
-  
-  
   font-family: FreightSans Pro Book, sans-serif;
   color: #999;
-  
-  
-
   display: inline;
-
   letter-spacing: .1em;
-  
-
   float: right;
-
   line-height: 14px;
-
   padding-top: 18px;
-
   margin-right: 20px;
-
 }
 
 #film-reel {
@@ -53,6 +48,10 @@ body {
   display: inline-block;
   float: left;
   margin: 0 25px;
+  -webkit-transform: rotate(-6deg);
+  margin-top: 15px;
+  margin-left: 30px;
+  position: absolute;
 }
 
 #film-reel li {
@@ -103,12 +102,11 @@ body {
   background-color: #0061a7;
 }
 #download-button {
-	width: 150px;
-	text-align: center;
-	margin: 5px auto;
-
-	margin-left: auto;
-	margin-right: auto;
+  width: 150px;
+  text-align: center;
+  margin: 5px auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #select-images-button {
@@ -116,14 +114,7 @@ body {
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  font-family: sans-serif;
-  color: #aaa;
-  text-align: center;
-  width: 100%;
 }
-
 
 li div {
   width: 110px;
@@ -132,7 +123,7 @@ li div {
   background-position: center;
   background-size: cover;
 }
-img {
+#film-reel li img {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
@@ -143,7 +134,7 @@ img {
 .disabled {
   opacity: .2;
   cursor: default;
-  display:none;
+  display: none;
 }
 .disabled:hover {
 
@@ -156,17 +147,25 @@ img {
   font-family: FreightSans Pro Bold;
   font-weight: 900;
   font-size: 12px;
-  color: #ccc;
-  position: fixed;
+  color: #888;
+  position: relative;
   bottom: 10px;
-  left: 122px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
 }
 .logo-container {
-	text-decoration: none;
+  text-decoration: none;
   position: absolute;
-  right: 0;
+  right: 20px;
   bottom: 0;
   font-size: 42px;
+}
+.logo-positioner {
+	position: relative;
+width: 650px;
+bottom: 0;
+height: 150px;
 }
 .logo {
   font-family: FreightSans Pro Book;
@@ -187,10 +186,45 @@ img {
   margin-left: 3.5em;
   margin-top: -1.8ex;
 }
+#content {
+  width: 650px;
+  float: right;
+}
+#desc {
+  font-style: italic;
+  color: #aaa;
+  display: block;
+}
+#photo-count {
+
+}
+#dl_size {
+
+}
+
+#info {
+  font-family: open sans, sans-serif;
+  font-weight: 700;
+  margin: 20px 0 0 30px;
+  display: block;
+  margin-left: 100px;
+}
 @media (max-width: 800px) {
-	#page{
-		width: 400px;
-	}
+  #page {
+    width: 400px;
+  }
+  #film-reel {
+  	display: none;
+  }
+  #title {
+  	width: 400px;
+  }
+  #content {
+  	width: 400px;
+  }
+  .logo-positioner {
+  	width: 400px;
+  }
   .button {
     width: 210px;
     margin: 10px 30px 0 0;
