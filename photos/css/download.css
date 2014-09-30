@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#page {
+  width: 800px;
+  margin: auto auto;
+}
+#title {
+  border-bottom: 3px solid #2298B4;
+  line-height: 34px;
+  margin: 25px 0 0 10px;
+  display: inline-block;
+  font-family: FreightSans Pro Book, sans-serif;
+  color: #333;
+  font-size: 42px;
+  width: 100%;
+  width: 600px;
+}
+
+#subtitle {
+
+  font-size: 14px;
+  
+  
+  font-family: FreightSans Pro Book, sans-serif;
+  color: #999;
+  
+  
+
+  display: inline;
+
+  letter-spacing: .1em;
+  
+
+  float: right;
+
+  line-height: 14px;
+
+  padding-top: 18px;
+
+  margin-right: 20px;
+
+}
+
+#film-reel {
+  list-style: none;
+  background-color: black;
+  padding: 0 5px 2px 5px;
+  width: 110px;
+  display: inline-block;
+  float: left;
+  margin: 0 25px;
+}
+
+#film-reel li {
+  margin: 3px auto;
+  text-align: center;
+}
+
+#button-container {
+  margin: 30px;
+  text-align: center;
+}
+
+.button {
+
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+.green {
+  background-color: #36b31d;
+  text-shadow: 0px -1px 0px #86ae47;
+  border: 1px solid #83c41a;
+}
+.green.button:hover {
+  background-color: #06A000;
+}
+
+.button.blue {
+  background-color: #007dc1;
+  border: 1px solid #124d77;
+  text-shadow: 0px -1px 0px #154682;
+}
+.button.blue:hover {
+  background-color: #0061a7;
+}
+#download-button {
+	width: 150px;
+	text-align: center;
+	margin: 5px auto;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#select-images-button {
+
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  font-family: sans-serif;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
+
+
+li div {
+  width: 110px;
+  height: 75px;
+  display: block;
+  background-position: center;
+  background-size: cover;
+}
+img {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.disabled {
+  opacity: .2;
+  cursor: default;
+  display:none;
+}
+.disabled:hover {
+
+}
+.disabled:active {
+  top: 0 !important;
+}
+
+#footer {
+  font-family: FreightSans Pro Bold;
+  font-weight: 900;
+  font-size: 12px;
+  color: #ccc;
+  position: fixed;
+  bottom: 10px;
+  left: 122px;
+}
+.logo-container {
+	text-decoration: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 42px;
+}
+.logo {
+  font-family: FreightSans Pro Book;
+  font-size: 58px;
+  color: #333;
+  cursor: pointer;
+  /*  text-transform: lowercase;*/
+}
+.blue {
+  color: #2298B4;
+}
+.small {
+  transform: scale(.6,.6) translate(-14px,-15px);
+}
+.photolettering {
+  font-size: 20px;
+  letter-spacing: .4em;
+  margin-left: 3.5em;
+  margin-top: -1.8ex;
+}
+@media (max-width: 800px) {
+	#page{
+		width: 400px;
+	}
+  .button {
+    width: 210px;
+    margin: 10px 30px 0 0;
+    text-align: center;
+  }
+}
+
