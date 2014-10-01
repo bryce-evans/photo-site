@@ -59,6 +59,8 @@ $(document).ready(function() {
     hit.addClass('selected');
     if (UI.currentTab && hit !== UI.currentTab) {
       UI.currentTab.removeClass('selected');
+      // reset to top for new tab
+      $('body').scrollTop(0);
     }
     UI.currentTab = hit;
   }
