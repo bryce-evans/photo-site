@@ -26,7 +26,28 @@ body {
   width: 100%;
   width: 600px;
 }
+#drop-zone {
+height: 250px;
+border: 5px #ccc dashed;
+border-radius: 10px;
+margin: 20px;
+text-align: center;
+}
 
+#drop-zone span {
+font-family: open sans, sans serif;
+color: #CCCCCC;
+font-size: 48px;
+font-weight: 200;
+display: block;
+margin: 30px auto;
+}
+
+#or {
+  font-size: 22px !important;
+  margin: 0 !important;
+  font-style: italic !important; 
+}
 #subtitle {
 
   font-size: 14px;
@@ -101,8 +122,8 @@ body {
 .button.blue:hover {
   background-color: #0061a7;
 }
-#download-button {
-  width: 150px;
+#choose-files-button {
+  width: 180px;
   text-align: center;
   margin: 5px auto;
   margin-left: auto;
@@ -162,10 +183,7 @@ li div {
   font-size: 42px;
 }
 .logo-positioner {
-	position: relative;
-width: 650px;
-bottom: 0;
-height: 150px;
+  height: 150px;
 }
 .logo {
   font-family: FreightSans Pro Book;
@@ -185,10 +203,6 @@ height: 150px;
   letter-spacing: .4em;
   margin-left: 3.5em;
   margin-top: -1.8ex;
-}
-#content {
-  width: 650px;
-  float: right;
 }
 #desc {
   font-style: italic;
@@ -214,16 +228,16 @@ height: 150px;
     width: 400px;
   }
   #film-reel {
-  	display: none;
+    display: none;
   }
   #title {
-  	width: 400px;
+    width: 400px;
   }
   #content {
-  	width: 400px;
+    width: 400px;
   }
   .logo-positioner {
-  	width: 400px;
+    width: 400px;
   }
   .button {
     width: 210px;
