@@ -260,21 +260,30 @@ populatePhotos = function(set_data) {
     genSetLinks(set_data, true);
     return;
   }
-
+  
+  var photos_loaded = 0;
+  photo_onload = function(obj) {
+    photos_loaded++;
+    if (photos_loaded == set_data.photos.length) {
+    	var imgs = $('.stage-img');
+      imgs.each(function(i) {
+        $(imgs[i]).fadeIn(400);
+      });
+    }
+  }
+  
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  class="fadeIn" onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  class="stage-img" onload="photo_onload(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
   });
 
+
   // preload all photos if not done yet
   genAllSetLinks();
-}
 
-window.fadeIn = function(obj) {
-  $(obj).fadeIn(1000);
 }
 clearPhotos = function() {
   for (var i = 1; i < 4; i++) {
