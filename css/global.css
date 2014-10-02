@@ -243,7 +243,37 @@ a.extern:visited {
   width: 400px;
 }
 
+#reviews {
+  width: 640px;
+}
 
+#reviews div {
+  font-size: 14px;
+  font-weight: 700;
+  color: #545D5F;
+}
+.quote {
+  margin: 40px 0 10px 40px;
+}
+.quoted {
+  display: block;
+  margin-left: 350px;
+  margin-top: 10px;
+}
+.quoted span {
+  left: 0;
+  font-weight: 900;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #494949;
+  margin-top: 10px;
+  padding-top: 10px;
+  top: 10px;
+}
+
+#reviews span {
+
+}
 .blue {
   color: #2298B4;
 }
@@ -261,3 +291,27 @@ a.extern:visited {
   margin-left: 3.5em;
   margin-top: -1.8ex;
 }
+
+.fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  -o-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  
+  -webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	-o-animation-duration:1s;
+	animation-duration:1s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+

@@ -209,7 +209,7 @@ height: 150px;
   display: block;
   margin-left: 100px;
 }
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 720px) {
   #page {
     width: 400px;
   }

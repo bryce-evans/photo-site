@@ -263,7 +263,7 @@ populatePhotos = function(set_data) {
 
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  class="fadeIn" onload="fadeIn(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
