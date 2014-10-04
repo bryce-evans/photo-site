@@ -191,7 +191,6 @@ a.extern:visited {
 #stage.hidden, #collage.hidden {
   opacity: 0;
   z-index: -1;
-  display: none;
 }
 
 #stage div ul li {
@@ -354,6 +353,23 @@ a.extern:visited {
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
+}
+
+
+.fadeOut{
+	opacity: 1;
+	  -webkit-animation: fadeIn ease-in .4;
+  -moz-animation: fadeIn ease-in .4;
+  -o-animation: fadeIn ease-in .4;
+  animation: fadeIn ease-in .4;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  -o-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
   -webkit-animation-duration: .4s;
   -moz-animation-duration: .4s;
   -o-animation-duration: .4s;

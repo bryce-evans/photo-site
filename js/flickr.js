@@ -224,6 +224,9 @@ jsonFlickrApi = function(data) {
 }
 displaySet = function(set_data) {
   clearPhotos();
+  // reset scroll to top
+  $('body').scrollTop(0);
+
   populatePhotos(set_data);
 }
 populateCollage = function() {
@@ -266,7 +269,7 @@ populatePhotos = function(set_data) {
     photos_loaded++;
     if (photos_loaded == set_data.photos.length) {
 
-		// load in masonry
+      // load in masonry
       var container = document.querySelector('#photo-col');
       var msnry = new Masonry(container, {
         columnWidth : 405
@@ -276,7 +279,6 @@ populatePhotos = function(set_data) {
       var imgs = $('.stage-img');
       imgs.each(function(i) {
         $(imgs[i]).addClass('fadeIn');
-        //fadeIn(400);
       });
     }
   }

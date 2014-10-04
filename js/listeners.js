@@ -1,7 +1,7 @@
 ui = function() {
   this.init = function() {
-    this.currentTab = $('#logo');
-    this.currentDisplay = $('#logo');
+    this.currentTab = null;
+    this.currentDisplay = null;
     this.stageShown = true;
     this.allLinksLoading = false;
     this.allLinksLoaded = false;
@@ -20,7 +20,7 @@ UI = new ui();
 $(document).ready(function() {
 
   UI.init();
-// 
+  //
   $('#stage').width(($(window).width() - 240) + 'px');
   $(window).resize(function() {
     $('#stage').width(($(window).width() - 240) + 'px');
@@ -31,15 +31,68 @@ $(document).ready(function() {
   swapDisplayTo = function(id) {
 
     //no change
-    if (id === '#' + UI.currentDisplay.attr('id')) {
+    if (UI.currentDisplay && id === '#' + UI.currentDisplay.attr('id')) {
       return;
-      // hide current
-    } else {
-      UI.currentDisplay.addClass('hidden');
+
     }
-    // show new UI.display
+
+    // remove previous fixed positioning
     var element = $(id);
-    element.removeClass('hidden');
+     element.css('position', '');
+      element.css('top', ''); 
+
+
+    // show new UI.display
+    // reset to top for new tab
+    if (UI.currentDisplay) {
+
+      // fade from current location and zoom to the top for seamless transition
+      var top =  UI.currentDisplay.offset().top;
+      UI.currentDisplay.css('top', -$(document).scrollTop() + top);
+      UI.currentDisplay.css('position', 'fixed');
+
+      // immediately remove the fixed positioning after switch
+     
+         
+     
+
+
+      // reset scroll to top
+      setTimeout(function() {
+        $('body').scrollTop(0);
+      }, 250);
+      UI.currentDisplay.addClass('hidden');
+
+      // fade out stage
+      // if (UI.currentDisplay === $('#stage')) {
+      // var imgs = $('.stage-img');
+      // imgs.each(function(i) {
+      // $(imgs[i]).removeClass('fadeIn');
+      // $(imgs[i]).addClass('fadeOut');
+      // });
+      // setTimeout(function() {
+      // $('#stage').hide();
+      // }, 400);
+      // }
+
+    }
+
+    // fade in stage
+    // if (UI.currentDisplay === $('#stage')) {
+    // var imgs = $('.stage-img');
+    // imgs.each(function(i) {
+    // $(imgs[i]).addClass('fadeIn');
+    // });
+    // $('#stage').show();
+    // }
+
+
+/// just wait a bit, sometimes the positioning is wrong. #HACKLOL
+      setTimeout(function() {
+        element.removeClass('hidden');
+      }, 300);
+      
+    
     UI.currentDisplay = element;
   }
   // $("#menu li").click(function() {
@@ -64,8 +117,7 @@ $(document).ready(function() {
     hit.addClass('selected');
     if (UI.currentTab && hit !== UI.currentTab) {
       UI.currentTab.removeClass('selected');
-      // reset to top for new tab
-      $('body').scrollTop(0);
+
     }
     UI.currentTab = hit;
   }
@@ -84,6 +136,7 @@ $(document).ready(function() {
     UI.setNavAnchor('featured');
     swapDisplayTo('#stage');
     displaySet(sets.featured50);
+
   }
   UI.displayCollage = function() {
     UI.highlightTab('#tab-collage');
@@ -133,6 +186,7 @@ $(document).ready(function() {
   UI.displayContact = function() {
     UI.highlightTab('#tab-contact');
     UI.setNavAnchor('contact');
+
     swapDisplayTo('#contact');
   }
   $('#tab-featured').click(function() {
