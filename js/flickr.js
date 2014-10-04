@@ -274,8 +274,10 @@ populatePhotos = function(set_data) {
       var msnry = new Masonry(container, {
         columnWidth : 405
       });
-      msnry.bindResize()
+      // allow columns to fit resizing of window
+      msnry.bindResize();
 
+			// fade in images when all are ready
       var imgs = $('.stage-img');
       imgs.each(function(i) {
         $(imgs[i]).addClass('fadeIn');

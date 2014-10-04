@@ -52,9 +52,6 @@ $(document).ready(function() {
       UI.currentDisplay.css('position', 'fixed');
 
       // immediately remove the fixed positioning after switch
-     
-         
-     
 
 
       // reset scroll to top
@@ -78,19 +75,19 @@ $(document).ready(function() {
     }
 
     // fade in stage
-    // if (UI.currentDisplay === $('#stage')) {
-    // var imgs = $('.stage-img');
-    // imgs.each(function(i) {
-    // $(imgs[i]).addClass('fadeIn');
-    // });
-    // $('#stage').show();
-    // }
+     // if (UI.currentDisplay === $('#stage')) {
+     // var imgs = $('.stage-img');
+     // imgs.each(function(i) {
+     // $(imgs[i]).addClass('fadeIn');
+     // });
+     // $('#stage').show();
+     // }
 
 
 /// just wait a bit, sometimes the positioning is wrong. #HACKLOL
       setTimeout(function() {
         element.removeClass('hidden');
-      }, 300);
+      }, 400);
       
     
     UI.currentDisplay = element;
