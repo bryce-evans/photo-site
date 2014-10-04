@@ -75,13 +75,13 @@ $(document).ready(function() {
     }
 
     // fade in stage
-     // if (UI.currentDisplay === $('#stage')) {
-     // var imgs = $('.stage-img');
-     // imgs.each(function(i) {
-     // $(imgs[i]).addClass('fadeIn');
-     // });
-     // $('#stage').show();
-     // }
+    // if (UI.currentDisplay === $('#stage')) {
+    // var imgs = $('.stage-img');
+    // imgs.each(function(i) {
+    // $(imgs[i]).addClass('fadeIn');
+    // });
+    // $('#stage').show();
+    // }
 
 
 /// just wait a bit, sometimes the positioning is wrong. #HACKLOL
