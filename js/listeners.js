@@ -180,14 +180,14 @@ $(document).ready(function() {
   }
   UI.displayReviews = function() {
     UI.highlightTab('#tab-reviews');
-    UI.setNavAnchor('reviews');
+    UI.setNavAnchor('kind-words');
     swapDisplayTo('#reviews');
   }
   UI.displayContact = function() {
     UI.highlightTab('#tab-contact');
     UI.setNavAnchor('contact');
 
-    swapDisplayTo('#contact');
+    swapDisplayTo('#page-contact');
   }
   $('#tab-featured').click(function() {
     UI.displayFeatured();
