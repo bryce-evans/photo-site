@@ -244,23 +244,40 @@ a.extern:visited {
 }
 
 #reviews {
-  width: 640px;
-}
-
-#reviews div {
-  font-size: 14px;
+  width: 600px;
+    font-size: 14px;
   font-weight: 700;
   color: #545D5F;
 }
-.quote {
-  margin: 40px 0 10px 40px;
+
+.review {
+	height: 200px;
 }
-.quoted {
-  display: block;
-  margin-left: 350px;
-  margin-top: 10px;
+
+#reviews ul {
+	padding-left: 0;
 }
-.quoted span {
+#reviews ul li .review-img {
+width: 150px;
+height: 200px;
+background-position: center;
+background-size: cover;
+box-shadow: 0 0 10px #fff inset;
+border-radius: 8px;
+float: left;
+}
+
+.review-quote {
+  float: left;
+width: 430px;
+margin: 10px 0 0 20px;
+}
+.review-author {
+display: block;
+margin-top: 10px;
+float: right;
+}
+.review-author span {
   left: 0;
   font-weight: 900;
   font-size: 13px;
@@ -271,9 +288,6 @@ a.extern:visited {
   top: 10px;
 }
 
-#reviews span {
-
-}
 .blue {
   color: #2298B4;
 }
@@ -291,8 +305,8 @@ a.extern:visited {
   margin-left: 3.5em;
   margin-top: -1.8ex;
 }
-.stage-img{
-	display:none;
+.stage-img {
+  display: none;
 }
 .fadeIn {
   opacity: 0;
@@ -300,20 +314,79 @@ a.extern:visited {
   -moz-animation: fadeIn ease-in 1;
   -o-animation: fadeIn ease-in 1;
   animation: fadeIn ease-in 1;
-  
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  
-  -webkit-animation-duration:1s;
-	-moz-animation-duration:1s;
-	-o-animation-duration:1s;
-	animation-duration:1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeIn {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+} }
+@-moz-keyframes
+fadeIn {from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+} }
+@-o-keyframes
+fadeIn {from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+} }
+@keyframes
+fadeIn {from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+} }
 
+
+
+@media screen and (max-device-width: 480px) {
+
+  #left-col {
+    width: 240px;
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px 0 0 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  #stage {
+    position: relative;
+    left: 0;
+    margin-left: 0;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .col {
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    margin: 5px;
+    margin: 0;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
