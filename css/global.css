@@ -191,26 +191,6 @@ a.extern:visited {
   z-index: -1;
   display: none;
 }
-.col {
-  width: 400px;
-  height: 100%;
-  background-color: #fff;
-  margin: 5px;
-}
-#col1 {
-  position: absolute;
-  left: 20px;
-  top: 33px;
-}
-#col2 {
-  position: absolute;
-  left: 425px;
-}
-#col3 {
-  position: absolute;
-  left: 830px;
-  top: 13px;
-}
 
 #stage div ul li {
   width: 100%;
@@ -245,37 +225,37 @@ a.extern:visited {
 
 #reviews {
   width: 600px;
-    font-size: 14px;
+  font-size: 14px;
   font-weight: 700;
   color: #545D5F;
 }
 
 .review {
-	height: 200px;
+  height: 200px;
 }
 
 #reviews ul {
-	padding-left: 0;
+  padding-left: 0;
 }
 #reviews ul li .review-img {
-width: 150px;
-height: 200px;
-background-position: center;
-background-size: cover;
-box-shadow: 0 0 10px #fff inset;
-border-radius: 8px;
-float: left;
+  width: 150px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 0 10px #fff inset;
+  border-radius: 8px;
+  float: left;
 }
 
 .review-quote {
   float: left;
-width: 430px;
-margin: 10px 0 0 20px;
+  width: 430px;
+  margin: 10px 0 0 20px;
 }
 .review-author {
-display: block;
-margin-top: 10px;
-float: right;
+  display: block;
+  margin-top: 10px;
+  float: right;
 }
 .review-author span {
   left: 0;
@@ -306,7 +286,8 @@ float: right;
   margin-top: -1.8ex;
 }
 .stage-img {
-  display: none;
+	float: left;
+  margin: 5px 5px 0 0;
 }
 .fadeIn {
   opacity: 0;
@@ -353,8 +334,6 @@ to {
   opacity: 1;
 } }
 
-
-
 @media screen and (max-device-width: 480px) {
 
   #left-col {
@@ -379,7 +358,10 @@ to {
     width: 100%;
   }
 
-  .col {
+  #photo-col {
+    position: absolute;
+    left: 20px;
+    top: 33px;
     width: 400px;
     height: 100%;
     background-color: #fff;

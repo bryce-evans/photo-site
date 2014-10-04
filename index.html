@@ -18,7 +18,16 @@
 
 	</head>
 	<body onload="checkAnchor();">
-
+<div style="
+display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+"></div>
 		<div id="top-fader"></div>
 
 		<div id='left-col'>
@@ -167,15 +176,7 @@
 			blah blah blah
 		</div>
 		<div id='stage'>
-			<div id='col1' class='col'>
-				<ul id='photo-col1'></ul>
-			</div>
-			<div id='col2' class='col'>
-				<ul id='photo-col2'></ul>
-			</div>
-			<div id='col3' class='col'>
-				<ul id='photo-col3'></ul>
-			</div>
+			<ul id='photo-col'></ul>
 		</div>
 		<div id='collage'>
 			<ul id='collage-container'>
@@ -183,5 +184,32 @@
 			</ul>
 		</div>
 		<script src="js/slider.js"></script>
+		
+	<script src="masonry/bower_components/classie/classie.js"></script>
+  
+    <script src="masonry/bower_components/eventie/eventie.js"></script>
+  
+    <script src="masonry/bower_components/doc-ready/doc-ready.js"></script>
+  
+    <script src="masonry/bower_components/get-style-property/get-style-property.js"></script>
+  
+    <script src="masonry/bower_components/eventEmitter/EventEmitter.js"></script>
+  
+    <script src="masonry/bower_components/imagesloaded/imagesloaded.js"></script>
+  
+    <script src="masonry/bower_components/get-size/get-size.js"></script>
+  
+    <script src="masonry/bower_components/jquery-bridget/jquery.bridget.js"></script>
+  
+    <script src="masonry/bower_components/matches-selector/matches-selector.js"></script>
+  
+    <script src="masonry/bower_components/outlayer/item.js"></script>
+  
+    <script src="masonry/bower_components/outlayer/outlayer.js"></script>
+  
+    <script src="masonry/bower_components/masonry/masonry.js"></script>
+  
+    <script src="masonry/js/controller.js"></script>
+ 
 	</body>
 </html>

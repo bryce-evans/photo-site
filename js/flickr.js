@@ -274,11 +274,18 @@ populatePhotos = function(set_data) {
   
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col' + (((i + 1) % 3) + 1)).append('<li ><a href="' + url + '" target="_blank"><img  class="stage-img" onload="photo_onload(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img"  ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
   });
+
+debugger;
+var container = document.querySelector('#photo-col');
+var msnry = new Masonry( container, {
+  columnWidth: 405
+});
+msnry.bindResize()
 
 
   // preload all photos if not done yet
