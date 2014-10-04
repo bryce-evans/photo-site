@@ -12,6 +12,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 ul {
   list-style: none;
 }
@@ -159,7 +163,7 @@ h1 {
   font-size: 18px;
   font-family: open sans;
   margin-top: 14px;
-  color: #9EBCC3;
+  color: #8DB2BB;
 }
 #contact-header-big {
   letter-spacing: .2em;
@@ -178,12 +182,10 @@ a.extern:visited {
   color: #008CBA;
 }
 #stage {
-
-  position: absolute;
-  left: 140px;
-  margin-left: 100px;
-  z-index: 2;
   width: 100%;
+  position: absolute;
+  left: 240px;
+  z-index: 2;
   top: 0;
 }
 #stage.hidden, #collage.hidden {
@@ -230,6 +232,48 @@ a.extern:visited {
   color: #545D5F;
 }
 
+#reviews-clear {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+}
+#reviews-blurred {
+  -webkit-filter: blur(10px);
+  position: absolute;
+  z-index: 1;
+}
+#reviews-header {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  background-color: rgba(255,255,255,.96);
+  width: 100%;
+  padding-top: 55px;
+  padding-bottom: 15px;
+  z-index: 5;
+}
+
+.ice {
+  background: inherit;
+}
+
+.ice:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(5px);
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: url(#blur);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='6');
+}
+
 .review {
   height: 200px;
 }
@@ -242,9 +286,9 @@ a.extern:visited {
   height: 200px;
   background-position: center;
   background-size: cover;
-  box-shadow: 0 0 10px #fff inset;
-  border-radius: 8px;
+  border-radius: 6px;
   float: left;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
 }
 
 .review-quote {
@@ -286,25 +330,20 @@ a.extern:visited {
   margin-top: -1.8ex;
 }
 .stage-img {
-	opacity: 0;
+  opacity: 0;
   float: left;
   margin: 5px 5px 0 0;
 }
 
-  #stage {
-    z-index: 1;
-  }
-
-  #photo-col {
-    height: 100%;
-    background-color: #fff;
-    margin: 5px;
-
-  }
+#photo-col {
+  height: 100%;
+  background-color: #fff;
+  margin: 5px;
+}
 
 /*#photo-col:nth-child(1) {
-  top: 33px;
-}*/
+ top: 33px;
+ }*/
 .fadeIn {
   opacity: 0;
   -webkit-animation: fadeIn ease-in .4;
@@ -366,6 +405,5 @@ to {
     max-width: 100%;
     height: auto;
   }
-
 
 }

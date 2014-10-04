@@ -248,7 +248,7 @@ populateCollage = function() {
 
     if (ids.forEach) {
       ids.forEach(function(id) {
-        $('#collage-container').append('<li class="stage-img"><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
+        $('#collage-container').append('<li class="collage-img"><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
       });
     }
   }

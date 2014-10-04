@@ -20,6 +20,11 @@ UI = new ui();
 $(document).ready(function() {
 
   UI.init();
+// 
+  $('#stage').width(($(window).width() - 240) + 'px');
+  $(window).resize(function() {
+    $('#stage').width(($(window).width() - 240) + 'px');
+  });
 
   // hides current display and shows new one
   // e.g. stage, about, other info etc
@@ -167,35 +172,34 @@ $(document).ready(function() {
 
 });
 
-
 // change header size on scroll
 // from Wolfram <http://reference.wolfram.com/common/javascript/gl-head-scripts.en.js>
 // basically if not at top, add class to shrink. Always fixed at top, only shrunk
 // (window).on('load scroll resize', gl_ThrottleFunction(function() {
-  // // create ability to toggle the compact menu
-  // if ($('body.gl-header-nocompact').length > 0) {
-    // // don't use the compact header (the rest is done with css)
-    // gl_FirstRun = false;
-  // } else {
-    // // switch to compact mode when page is loaded/reloaded while scrolled down
-    // if (gl_FirstRun && $(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
-      // $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact gl-onload');
-      // gl_FirstRun = false;
-      // return;
-    // }
-    // gl_FirstRun = false;
-// 
-    // // toggle modes on scroll
-    // if ($(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
-      // // switch to compact mode when user scrolls down
-      // $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact');
-    // } else {
-      // // use full size mode by default and switch to it when user scrolls up
-      // $('#gl-header, #gl-header-bg, #gl-header-offset').removeClass('gl-compact');
-    // }
-  // }
-  // // emulate horizontal scroll effect on fixed position element
-  // $(gl_Header).offset({
-    // left : gl_OffsetLeft
-  // });
-// })); 
+// // create ability to toggle the compact menu
+// if ($('body.gl-header-nocompact').length > 0) {
+// // don't use the compact header (the rest is done with css)
+// gl_FirstRun = false;
+// } else {
+// // switch to compact mode when page is loaded/reloaded while scrolled down
+// if (gl_FirstRun && $(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
+// $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact gl-onload');
+// gl_FirstRun = false;
+// return;
+// }
+// gl_FirstRun = false;
+//
+// // toggle modes on scroll
+// if ($(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
+// // switch to compact mode when user scrolls down
+// $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact');
+// } else {
+// // use full size mode by default and switch to it when user scrolls up
+// $('#gl-header, #gl-header-bg, #gl-header-offset').removeClass('gl-compact');
+// }
+// }
+// // emulate horizontal scroll effect on fixed position element
+// $(gl_Header).offset({
+// left : gl_OffsetLeft
+// });
+// }));
