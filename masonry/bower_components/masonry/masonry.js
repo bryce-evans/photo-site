@@ -45,7 +45,16 @@ function masonryDefinition( Outlayer, getSize ) {
     while (i--) {
       this.colYs.push( 0 );
     }
+    
+    // add top shift to columns
+    if(this.cols >= 2){
+			this.colYs[0] = 33;
+		}
 
+		if(this.cols == 3){
+			this.colYs[2] = 13;
+		}
+		
     this.maxY = 0;
   };
 

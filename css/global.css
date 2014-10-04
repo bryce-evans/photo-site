@@ -286,23 +286,39 @@ a.extern:visited {
   margin-top: -1.8ex;
 }
 .stage-img {
-	float: left;
+	opacity: 0;
+  float: left;
   margin: 5px 5px 0 0;
 }
+
+  #stage {
+    z-index: 1;
+  }
+
+  #photo-col {
+    height: 100%;
+    background-color: #fff;
+    margin: 5px;
+
+  }
+
+/*#photo-col:nth-child(1) {
+  top: 33px;
+}*/
 .fadeIn {
   opacity: 0;
-  -webkit-animation: fadeIn ease-in 1;
-  -moz-animation: fadeIn ease-in 1;
-  -o-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
+  -webkit-animation: fadeIn ease-in .4;
+  -moz-animation: fadeIn ease-in .4;
+  -o-animation: fadeIn ease-in .4;
+  animation: fadeIn ease-in .4;
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
 }
 
 @-webkit-keyframes fadeIn {
@@ -350,25 +366,6 @@ to {
     max-width: 100%;
     height: auto;
   }
-  #stage {
-    position: relative;
-    left: 0;
-    margin-left: 0;
-    z-index: 1;
-    width: 100%;
-  }
 
-  #photo-col {
-    position: absolute;
-    left: 20px;
-    top: 33px;
-    width: 400px;
-    height: 100%;
-    background-color: #fff;
-    margin: 5px;
-    margin: 0;
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-  }
+
 }

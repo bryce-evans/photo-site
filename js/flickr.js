@@ -248,7 +248,7 @@ populateCollage = function() {
 
     if (ids.forEach) {
       ids.forEach(function(id) {
-        $('#collage-container').append('<li><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
+        $('#collage-container').append('<li class="stage-img"><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
       });
     }
   }
@@ -260,42 +260,42 @@ populatePhotos = function(set_data) {
     genSetLinks(set_data, true);
     return;
   }
-  
+
   var photos_loaded = 0;
   photo_onload = function(obj) {
     photos_loaded++;
     if (photos_loaded == set_data.photos.length) {
-    	var imgs = $('.stage-img');
+
+		// load in masonry
+      var container = document.querySelector('#photo-col');
+      var msnry = new Masonry(container, {
+        columnWidth : 405
+      });
+      msnry.bindResize()
+
+      var imgs = $('.stage-img');
       imgs.each(function(i) {
-        $(imgs[i]).fadeIn(400);
+        $(imgs[i]).addClass('fadeIn');
+        //fadeIn(400);
       });
     }
   }
-  
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img"  ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this)" id="' + set_data.photos[i].id + '" width="400px" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
   });
-
-debugger;
-var container = document.querySelector('#photo-col');
-var msnry = new Masonry( container, {
-  columnWidth: 405
-});
-msnry.bindResize()
-
 
   // preload all photos if not done yet
   genAllSetLinks();
 
 }
 clearPhotos = function() {
-  for (var i = 1; i < 4; i++) {
-    $('#photo-col' + i).empty();
-  }
+
+  $('#photo-col').empty();
+
 }
 getFlickrURL = function(farm, server, id, secret, size) {
   size = size || '';
