@@ -11,7 +11,7 @@ function checkAnchor() {
     'recent' : UI.displayRecent,
     'about' : UI.displayAbout,
     'retouching' : UI.displayRetouching,
-    'reviews' : UI.displayReviews,
+    'kind-words' : UI.displayReviews,
     'kindwords' : UI.displayReviews,
     'contact' : UI.displayContact,
   }

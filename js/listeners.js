@@ -171,7 +171,8 @@ $(document).ready(function() {
   }
   UI.displayAbout = function() {
     UI.highlightTab('#tab-about');
-    swapDisplayTo('#about');
+    UI.setNavAnchor('about');
+    swapDisplayTo('#page-about');
   }
   UI.displayRetouching = function() {
     UI.highlightTab('#tab-retouching');
