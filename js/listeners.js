@@ -6,6 +6,7 @@ ui = function() {
     this.allLinksLoading = false;
     this.allLinksLoaded = false;
     this.collageLoaded = false;
+    this.menuOpen = false;
 
     // data to be shown after links are loaded
     // used in a callback to genSetLinks
@@ -38,21 +39,19 @@ $(document).ready(function() {
 
     // remove previous fixed positioning
     var element = $(id);
-     element.css('position', '');
-      element.css('top', ''); 
-
+    element.css('position', '');
+    element.css('top', '');
 
     // show new UI.display
     // reset to top for new tab
     if (UI.currentDisplay) {
 
       // fade from current location and zoom to the top for seamless transition
-      var top =  UI.currentDisplay.offset().top;
+      var top = UI.currentDisplay.offset().top;
       UI.currentDisplay.css('top', -$(document).scrollTop() + top);
       UI.currentDisplay.css('position', 'fixed');
 
       // immediately remove the fixed positioning after switch
-
 
       // reset scroll to top
       setTimeout(function() {
@@ -83,13 +82,11 @@ $(document).ready(function() {
     // $('#stage').show();
     // }
 
+    /// just wait a bit, sometimes the positioning is wrong. #HACKLOL
+    setTimeout(function() {
+      element.removeClass('hidden');
+    }, 400);
 
-/// just wait a bit, sometimes the positioning is wrong. #HACKLOL
-      setTimeout(function() {
-        element.removeClass('hidden');
-      }, 400);
-      
-    
     UI.currentDisplay = element;
   }
   // $("#menu li").click(function() {
@@ -128,12 +125,30 @@ $(document).ready(function() {
 
   }
 
+  UI.menuClicked = function(tab) {
+    // check to make sure mobile
+    // if(){...}
+
+    // switch to new tab
+    if (UI.menuOpen) {
+      $(tab).addClass('selected');
+      UI.currentTab.removeClass('selected active');
+      UI.currentTab = $(tab);
+       $('#menu li').hide();
+      UI.menuOpen = false;
+    } else {
+      UI.menuOpen = true;
+      $('#menu li').show();
+      $($('.selected')[0]).addClass('active');
+    }
+
+  }
+
   UI.displayFeatured = function() {
     UI.highlightTab('#tab-featured');
     UI.setNavAnchor('featured');
     swapDisplayTo('#stage');
     displaySet(sets.featured50);
-
   }
   UI.displayCollage = function() {
     UI.highlightTab('#tab-collage');
@@ -188,37 +203,47 @@ $(document).ready(function() {
     swapDisplayTo('#page-contact');
   }
   $('#tab-featured').click(function() {
+    UI.menuClicked(this.id);
     UI.displayFeatured();
   });
 
   $('#tab-collage').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayCollage();
   });
 
   $('#tab-performances').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayPerformances();
   });
 
   $('#tab-portraits').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayPortraits();
   });
   $('#tab-cats').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayCats();
   });
   $('#tab-recent').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayRecent();
   });
   $('#tab-about').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayAbout();
   });
 
   $('#tab-retouching').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayRetouching();
   });
   $('#tab-reviews').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayReviews();
   });
   $('#tab-contact').click(function() {
+  	UI.menuClicked(this.id);
     UI.displayContact();
   });
 

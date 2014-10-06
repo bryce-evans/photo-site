@@ -167,6 +167,8 @@ h1 {
   font-family: open sans;
   margin-top: 14px;
   color: #8DB2BB;
+  color: #F07454;
+/*border-bottom: 1px solid rgba(141, 178, 187, 0.16);*/
 }
 #contact-header-big {
   letter-spacing: .2em;
@@ -194,6 +196,7 @@ a.extern:visited {
 #stage.hidden, #collage.hidden {
   opacity: 0;
   z-index: -1;
+  display: none;
 }
 
 #stage div ul li {
@@ -228,7 +231,7 @@ a.extern:visited {
 }
 
 #reviews {
-  max-width: 600px;
+  max-width: 620px;
   width: 100%;
   font-size: 14px;
   font-weight: 700;
@@ -239,6 +242,7 @@ a.extern:visited {
   position: absolute;
   z-index: 2;
   background-color: white;
+  margin-top: 0;
 }
 #reviews-blurred {
   -webkit-filter: blur(10px);
@@ -278,7 +282,6 @@ a.extern:visited {
 
 .review {
   height: 200px;
-  padding-top: 30px;
 }
 
 #reviews ul {
@@ -293,13 +296,18 @@ a.extern:visited {
   border-radius: 6px;
   float: left;
   box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 
 .review-quote {
   float: left;
   width: 100%;
-  max-width: 425px;
-  margin: 10px 0 0 20px;
+  max-width: 435px;
+  margin: 10px 0 0 30px;
 }
 .review-author {
   display: block;
@@ -343,8 +351,6 @@ a.extern:visited {
 /* don't have link take up any space in the tile*/
 .stage-img a {
 
-
-
 }
 
 .stage-img a img {
@@ -358,7 +364,7 @@ a.extern:visited {
 
 /*#photo-col:nth-child(1) {
  top: 33px;
-}*/
+ }*/
 /* WHAT IS THIS. anything less than one second doesn't finish. I WANT 0.4s >:O */
 .fadeIn {
   opacity: 0;
@@ -534,6 +540,64 @@ to {
     margin-left: auto;
     margin-right: auto;
     float: none;
+    margin-top: 15px;
+  }
+
+  #menu li {
+    display: none;
+    background-color: #EC3F12;
+    color: white !important;
+    position: relative;
+    padding: 10px 15px !important;
+    padding-bottom: 30px !important;
+  }
+  #menu {
+    top: 45px;
+    right: 12px;
+  }
+
+  #menu li:hover {
+
+    background-color: #d83a10;
+    border: none;
+  }
+
+  #menu .selected.selected {
+    top: -45px;
+    background-color: white;
+    color: #EC3F12 !important;
+    display: block !important;
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    border: 1px solid #EC3F12 !important;
+    border-radius: 8px;
+    padding: 8px !important;
+    width: 76px;
+  }
+
+  #menu .selected.selected::before {
+    content: '▶';
+    display: inline;
+    float: left;
+  }
+  #menu .separator::hover {
+    background-color: #EC3F12;
+  }
+  #menu .active.active.active.active {
+  	display: list-item;
+  	 top:-45px;
+  	 padding-bottom: 35px;
+    background-color: #EC3F12;
+    color: white !important;
+    height: 20px;
+    position: absolute;
+    width: 76px;
+    display: block;
+    right: 0;
+  }
+  #menu li .selective .active::before {
+    content: '▼';
   }
 
 }
