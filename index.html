@@ -6,6 +6,7 @@
 		<title>Bryce Evans Photography</title>
 		<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<script src="js/jquery-2.1.js"></script>
+		<script src="js/jquery.tipsy.js"></script>
 		<!-- 		<script src="http://www.nihilogic.dk/labs/exif/exif.js"></script> -->
 
 		<script src="js/listeners.js"></script>
@@ -101,8 +102,19 @@
 				<li></li>
 			</ul>
 			<div id='footer'>
+				<div id="version" style="color: #EC3F12; cursor: pointer;" rel="tooltip" title="Alpha Release- Many Known Issues">
+					v.0.0.04&alpha;
+				</div>
+				<script>
+          $(document).ready(function() {
+            $('#version').tipsy({
+              gravity : 'n'
+            });
+          });
+				</script>
 				&copy;2014 Bryce A. Evans
 			</div>
+
 		</div>
 		<div id='page-contact' class='info-page hidden'>
 			<div id='contact-header' class='info-header'>
@@ -119,20 +131,35 @@
 		</div>
 		<div id='reviews' class='info-page hidden'>
 			<div id='reviews-header' class='info-header'>
-				reviews
+				kind words
 			</div>
 
 			<ul id="reviews-clear">
+
+				<li class='review'>
+					<div class='review-img'
+					style="background-image:url(https://farm4.staticflickr.com/3766/13863343153_287d24bf35_z.jpg); background-image: url(https://farm8.staticflickr.com/7134/13906616363_956974d1f1_z_d.jpg)"></div>
+
+					<div class='review-quote'>
+						"The photos that Bryce took at Rhythms of China 2014 were beautiful. Movement and dance are extremely difficult to photograph, but he managed to capture our dancers and colorful props with great clarity and vivid detail. These images truly showcase the artistry of both the performers and the photographer."
+						<div class='review-author'>
+							<span>Colleen Fei</span>
+							<br>
+							<span>President, Illuminations Chinese Dance Troupe</span>
+						</div>
+					</div>
+				</li>
+
 				<li class='review'>
 					<div class='review-img'
 					style="background-image:url(https://farm8.staticflickr.com/7068/13947616015_2db67287aa_z.jpg);"></div>
 
 					<div class='review-quote'>
-						"I am truly glad that Bryce was hired as a photographer for [Yamatai's PULSE]. His skill, thoughtfulness, and genuine passion for capturing the essences of his subjects are so evident in his work. Everyone loved the final products&mdash; I couldn't have asked for anything better."
+						"I am truly glad that Bryce was hired as a photographer for [Yamatai's] PULSE. His skill, thoughtfulness, and genuine passion for capturing the essences of his subjects are so evident in his work. Everyone loved the final products&mdash; I couldn't have asked for anything better."
 						<div class='review-author'>
 							<span>Noreena Lau</span>
 							<br>
-							<span>Publicity Chair, Cornell Yamatai</span>
+							<span>Publicity Chair, Yamatai</span>
 						</div>
 					</div>
 				</li>
@@ -146,6 +173,16 @@
 						<span>Isabel Jimenez</span>
 						<br>
 						<span> Vice President, Cornell Swing Club</span>
+					</div>
+				</li>
+				<li class='review'>
+					<div class='review-img' style="background-image: url(https://farm4.staticflickr.com/3868/15342405936_b2fafcd416_z.jpg);"></div>
+					<div class='review-quote'>
+						My son's senior pictures turned out awesome!  Bryce is not only professional but very easy to work with. He captures what you are looking for in his pictures&mdash; I will definitely call on him again.
+					</div>
+					<div class='review-author'>
+						<span>Dawn</span>
+
 					</div>
 				</li>
 
