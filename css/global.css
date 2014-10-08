@@ -52,6 +52,11 @@ ul {
   min-height: 330px;
   z-index: 3;
 }
+
+/* Hide unless on mobile*/
+#mobile-selected {
+  display: none;
+}
 #menu {
 
   margin-right: 12px;
@@ -113,8 +118,8 @@ ul {
   padding: 0 9px !important;
 }
 
-.separator {
-  border-right: 1px solid #ccc !important;
+#menu li.separator {
+  border-right: 1px solid #ccc;
   cursor: default !important;
 }
 
@@ -467,14 +472,85 @@ to {
     background-color: rgba(255,255,255,.97);
   }
 
-  #menu {
-    top: 0;
-    position: fixed;
-    right: 0;
-    z-index: 10;
-    height: 40px;
-    padding-bottom: 0;
+  #mobile-menu {
+    height: 20px;
+    top: 16px;
+    background-color: white;
+    color: #EC3F12;
+    display: block;
+    position: absolute;
+    right: 16px;
+    font-size: 13px;
+    border: 1px solid #EC3F12;
+    border-radius: 8px;
+    padding: 8px;
+    font-family: open sans, sans serif;
+    width: 90px;
   }
+  #mobile-menu::before {
+    content: '▶  ';
+    display: inline;
+    float: left;
+    margin-right: 5px;
+  }
+
+  #mobile-menu.open {
+    padding-bottom: 23px;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+  }
+
+  #mobile-menu.open::before {
+    content: '▼  ';
+  }
+
+  #menu li {
+    background-color: #EC3F12;
+    color: white !important;
+    position: relative;
+    padding: 10px 15px;
+    border-right: none;
+  }
+  .menu li.separator {
+    border-right: none;
+  }
+
+  #menu {
+    top: 52px;
+    right: 4px;
+    position: fixed;
+    background-color: #EC3F12;
+    padding: 10px 0;
+    height: auto;
+  }
+
+  #menu li:hover {
+    background-color: #d83a10;
+    border: none;
+  }
+
+  /*Dark Orange Menu style*/
+  /*    background-color: white;
+   color: #EC3F12 !important;
+   display: block !important;
+   position: absolute;
+   right: 0;
+   font-size: 13px;
+   border: 1px solid #EC3F12 !important;
+   border-radius: 8px;
+   padding: 8px !important;*/
+
+  /* Bright Menu Style */
+  /*    display: list-item;
+   top: -45px;
+   padding-bottom: 35px;
+   background-color: #EC3F12;
+   color: white !important;
+   height: 20px;
+   position: absolute;
+   width: 90px;
+   display: block;
+   right: 0;*/
 
   #logo {
     z-index: 11;
@@ -548,61 +624,50 @@ to {
     margin-top: 15px;
   }
 
-  #menu li {
-    display: none;
-    background-color: #EC3F12;
-    color: white !important;
-    position: relative;
-    padding: 10px 15px !important;
-    padding-bottom: 30px !important;
-  }
-  #menu {
-    top: 45px;
-    right: 12px;
-  }
+}
 
-  #menu li:hover {
-
-    background-color: #d83a10;
-    border: none;
-  }
-
-  #menu .selected.selected {
-    top: -45px;
-    background-color: white;
-    color: #EC3F12 !important;
-    display: block !important;
-    position: absolute;
-    right: 0;
-    font-size: 13px;
-    border: 1px solid #EC3F12 !important;
-    border-radius: 8px;
-    padding: 8px !important;
-    width: 76px;
-  }
-
-  #menu .selected.selected::before {
-    content: '▶';
-    display: inline;
-    float: left;
-  }
-  #menu .separator::hover {
-    background-color: #EC3F12;
-  }
-  #menu .active.active.active.active {
-    display: list-item;
-    top: -45px;
-    padding-bottom: 35px;
-    background-color: #EC3F12;
-    color: white !important;
-    height: 20px;
-    position: absolute;
-    width: 76px;
-    display: block;
-    right: 0;
-  }
-  #menu li .selective .active::before {
-    content: '▼';
-  }
-
+/* Tooltip styles */
+.ui-tooltip, .arrow:after {
+  background: black;
+  border: 2px solid white;
+}
+.ui-tooltip {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  font: bold 14px "Helvetica Neue", Sans-Serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 7px black;
+}
+.arrow {
+  width: 70px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  bottom: -16px;
+}
+.arrow.top {
+  top: -16px;
+  bottom: auto;
+}
+.arrow.left {
+  left: 20%;
+}
+.arrow:after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 6px 5px 9px -9px black;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.arrow.top:after {
+  bottom: -20px;
+  top: auto;
 }

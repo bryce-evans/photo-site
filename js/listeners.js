@@ -7,13 +7,57 @@ ui = function() {
     this.allLinksLoaded = false;
     this.collageLoaded = false;
     this.menuOpen = false;
+    this.device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    // data to be shown after links are loaded
-    // used in a callback to genSetLinks
-    this.requestToShow = function(set_data) {
-      this.requestedToShow = set_data;
+  }
+  // data to be shown after links are loaded
+  // used in a callback to genSetLinks
+  this.requestToShow = function(set_data) {
+    this.requestedToShow = set_data;
+  }
+  this.requestedToShow = undefined;
+
+  this.showDisplayFromMenuId = function(id) {
+    switch (id) {
+      case "tab-featured":
+        this.displayFeatured();
+        break;
+      case 'tab-collage':
+        this.displayCollage();
+        break;
+      case 'tab-performances':
+        this.displayPerformances();
+        break;
+
+      case 'tab-portraits':
+        this.displayPortraits();
+        break;
+
+      case 'tab-cats':
+        this.displayCats();
+        break;
+
+      case 'tab-recent':
+        this.displayRecent();
+        break;
+
+      case 'tab-about':
+        this.displayAbout();
+        break;
+
+      case 'tab-retouching':
+        this.displayRetouching();
+        break;
+
+      case 'tab-reviews':
+        this.displayReviews();
+        break;
+
+      case 'tab-contact':
+        this.displayContact();
+        break;
+
     }
-    this.requestedToShow = undefined;
   }
 }
 UI = new ui();
@@ -32,7 +76,7 @@ $(document).ready(function() {
   swapDisplayTo = function(id) {
 
     //no change
-    if (UI.currentDisplay && id === '#' + UI.currentDisplay.attr('id')) {
+    if (UI.currentDisplay && id === UI.currentDisplay.selector) {
       return;
 
     }
@@ -111,7 +155,6 @@ $(document).ready(function() {
     hit.addClass('selected');
     if (UI.currentTab && hit !== UI.currentTab) {
       UI.currentTab.removeClass('selected');
-
     }
     UI.currentTab = hit;
   }
@@ -125,32 +168,21 @@ $(document).ready(function() {
 
   }
 
-  UI.menuClicked = function(tab) {
-    // check to make sure mobile
-    // if(){...}
-
-    // switch to new tab
-    if (UI.menuOpen) {
-      $(tab).addClass('selected');
-      UI.currentTab.removeClass('selected active');
-      UI.currentTab = $(tab);
-       $('#menu li').hide();
-      UI.menuOpen = false;
-    } else {
-      UI.menuOpen = true;
-      $('#menu li').show();
-      $($('.selected')[0]).addClass('active');
-    }
-
-  }
-
   UI.displayFeatured = function() {
+    if (UI.currentTab && UI.currentTab.selector === "#tab-featured") {
+      return;
+    } else {
+      UI.currentTab = $('#tab-featured');
+    }
     UI.highlightTab('#tab-featured');
     UI.setNavAnchor('featured');
     swapDisplayTo('#stage');
     displaySet(sets.featured50);
   }
   UI.displayCollage = function() {
+    if (UI.currentTab.selector === "#tab-collage") {
+      return;
+    }
     UI.highlightTab('#tab-collage');
     UI.setNavAnchor('collage');
     populateCollage();
@@ -158,94 +190,105 @@ $(document).ready(function() {
 
   }
   UI.displayPerformances = function() {
+    if (UI.currentTab.selector === "#tab-performances") {
+      return;
+    }
     UI.highlightTab('#tab-performances');
     UI.setNavAnchor('performances');
     swapDisplayTo('#stage');
     displaySet(sets.performances);
   }
   UI.displayPortraits = function() {
+    if (UI.currentTab.selector === "#tab-portraits") {
+      return;
+    }
     UI.highlightTab('#tab-portraits');
     UI.setNavAnchor('portraits');
     swapDisplayTo('#stage');
     displaySet(sets.portraits);
   }
   UI.displayCats = function() {
+    if (UI.currentTab.selector === "#tab-cats") {
+      return;
+    }
     UI.highlightTab('#tab-cats');
     UI.setNavAnchor('cats');
     swapDisplayTo('#stage');
     displaySet(sets.cats);
   }
   UI.displayRecent = function() {
+    if (UI.currentTab.selector === "#tab-recent") {
+      return;
+    }
     UI.highlightTab('#tab-recent');
     UI.setNavAnchor('recent');
     swapDisplayTo('#stage');
     displaySet(sets.stream);
   }
   UI.displayAbout = function() {
+    if (UI.currentTab.selector === "#tab-about") {
+      return;
+    }
     UI.highlightTab('#tab-about');
     UI.setNavAnchor('about');
     swapDisplayTo('#page-about');
   }
   UI.displayRetouching = function() {
+    if (UI.currentTab.selector === "#tab-retouching") {
+      return;
+    }
     UI.highlightTab('#tab-retouching');
     UI.setNavAnchor('retouching');
     swapDisplayTo('#retouching');
   }
   UI.displayReviews = function() {
+    if (UI.currentTab.selector === "#tab-reviews") {
+      return;
+    }
     UI.highlightTab('#tab-reviews');
     UI.setNavAnchor('kind-words');
     swapDisplayTo('#reviews');
   }
   UI.displayContact = function() {
+    if (UI.currentTab.selector === "#tab-contact") {
+      return;
+    }
     UI.highlightTab('#tab-contact');
     UI.setNavAnchor('contact');
 
     swapDisplayTo('#page-contact');
   }
-  $('#tab-featured').click(function() {
-    UI.menuClicked(this.id);
+  // MOBILE LISTENERS
+  if (UI.device) {
+
+    $('#mobile-menu').click(function() {
+      $('#menu').toggle();
+      $('#mobile-menu').toggleClass('open');
+    });
+
+    $('#menu li').click(function() {
+      $('#menu').toggle();
+      $('#mobile-menu').toggleClass('open');
+
+      $('#mobile-menu').text($('#' + this.id).text());
+
+      //show new item
+      UI.showDisplayFromMenuId(this.id);
+    });
+
+    // only show on drop down
+    $('#menu').hide();
+    $('#mobile-menu').text('featured');
     UI.displayFeatured();
-  });
 
-  $('#tab-collage').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayCollage();
-  });
+    // standard listeners
+  } else {
 
-  $('#tab-performances').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayPerformances();
-  });
+    $('#menu li').click(function() {
+      UI.showDisplayFromMenuId(this.id);
+    });
 
-  $('#tab-portraits').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayPortraits();
-  });
-  $('#tab-cats').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayCats();
-  });
-  $('#tab-recent').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayRecent();
-  });
-  $('#tab-about').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayAbout();
-  });
-
-  $('#tab-retouching').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayRetouching();
-  });
-  $('#tab-reviews').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayReviews();
-  });
-  $('#tab-contact').click(function() {
-  	UI.menuClicked(this.id);
-    UI.displayContact();
-  });
+  }
 
 });
 
