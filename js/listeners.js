@@ -11,16 +11,23 @@ ui = function() {
     //removed iPad
 
     // load in masonry
+    this.msnry;
     this.msnry_container = document.querySelector('#photo-col');
     this.msnry_settings = {
+    	itemSelector: '.stage-img',
+      isLayoutInstant : false,
+      hiddenStyle : {
+      opacity : 0,
+      transform : "scale(0.95)"
+      },
+      visibleStyle : {
+      opacity : 1,
+      transform : "scale(1)"
+      },
+
       columnWidth : 405,
-      popInAnimation : false,
-      transitionDuration : 400,
     };
 
-    this.msnry = new Masonry(this.msnry_container, this.msnry_settings );
-    // allow columns to fit resizing of window
-    this.msnry.bindResize();
 
   }
   // data to be shown after links are loaded

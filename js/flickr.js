@@ -1,3 +1,5 @@
+// BACKUP - OLD BUT WORKING
+
 const FLICKR = {
   URL : 'https://api.flickr.com/services/rest/',
   KEY : 'd86d9b82925db25bbeb0bf49d7e97e13',
@@ -258,19 +260,30 @@ populateCollage = function() {
 }
 // populates the stage with the photos from <Obj> set_data
 populatePhotos = function(set_data) {
-
   // load if not loaded yet
   if (set_data.photos.length === 0) {
     genSetLinks(set_data, true);
     return;
   }
-  // clear stage
-  //UI.msnry = new Masonry(UI.msnry_container, UI.msnry_settings);
-  for (var i = 0; i < UI.msnry.items.length; i++) {
-    UI.msnry.remove(UI.msnry.items[i]);
-  }
-  UI.msnry.layout();
 
+  // var photos_loaded = 0;
+  // photo_onload = function(obj) {
+  // photos_loaded++;
+  // if (photos_loaded == 5) {
+
+  // load in masonry
+  UI.msnry = new Masonry(UI.msnry_container, UI.msnry_settings);
+  // allow columns to fit resizing of window
+  UI.msnry.bindResize();
+
+  // fade in images when all are ready
+  // var imgs = $('.stage-img');
+  // imgs.each(function(i) {
+  // $(imgs[i]).addClass('fadeIn');
+  // });
+  // }
+  // }
+  //
   // handler for when photos come in
   // position is index of photo in list
   var photos_loaded = 0;
@@ -283,7 +296,8 @@ populatePhotos = function(set_data) {
       li.addClass('fadeIn');
       photo_position++;
       while (inQueue[photo_position]) {
-        UI.msnry.appended(inQueue[photo_position]);
+      	var elem = (inQueue[photo_position]);
+        UI.msnry.appended(elem);
         inQueue[photo_position].addClass('fadeIn');
         delete inQueue[photo_position];
         photo_position++;
@@ -291,18 +305,14 @@ populatePhotos = function(set_data) {
     } else {
       inQueue[pos] = li;
     }
-
   }
-  for (var i = 0; i < set_data.photos.length; i++) {
+  for (var i = 0; i < 5; i++) {
     var url = set_data.photos[i].getStreamURL();
     $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
   });
-
-  // reset display
-  UI.msnry.layout();
 
   // preload all photos if not done yet
   genAllSetLinks();

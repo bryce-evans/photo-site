@@ -366,8 +366,8 @@ a.extern:visited {
 }
 .stage-img {
   opacity: 0;
-  float: left;
-  margin: 0 5px 3px 0;
+/*  float: left;*/
+  margin: 0 5px 1px 0;
 }
 
 /* don't have link take up any space in the tile*/
@@ -387,21 +387,10 @@ a.extern:visited {
 /*#photo-col:nth-child(1) {
  top: 33px;
  }*/
-/* WHAT IS THIS. anything less than one second doesn't finish. I WANT 0.4s >:O */
+
 .fadeIn {
-  opacity: 0;
-  -webkit-animation: fadeIn ease-in 1;
-  -moz-animation: fadeIn ease-in 1;
-  -o-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .4s;
-  -moz-animation-duration: .4s;
-  -o-animation-duration: .4s;
-  animation-duration: .4s;
+  opacity: 1;
+  transition: opacity 0.4s;
 }
 
 .fadeOut {
