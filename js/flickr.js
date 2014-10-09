@@ -258,11 +258,18 @@ populateCollage = function() {
 }
 // populates the stage with the photos from <Obj> set_data
 populatePhotos = function(set_data) {
+
   // load if not loaded yet
   if (set_data.photos.length === 0) {
     genSetLinks(set_data, true);
     return;
   }
+  // clear stage
+  //UI.msnry = new Masonry(UI.msnry_container, UI.msnry_settings);
+  for (var i = 0; i < UI.msnry.items.length; i++) {
+    UI.msnry.remove(UI.msnry.items[i]);
+  }
+  UI.msnry.layout();
 
   // handler for when photos come in
   // position is index of photo in list
@@ -270,7 +277,7 @@ populatePhotos = function(set_data) {
   var photo_position = 0;
   var inQueue = {};
   photo_onload = function(obj, pos) {
-  	var li = $(obj).parent().parent();
+    var li = $(obj).parent().parent();
     if (pos === photo_position) {
       UI.msnry.appended(li);
       li.addClass('fadeIn');
@@ -288,11 +295,14 @@ populatePhotos = function(set_data) {
   }
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,'+i+')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);
   });
+
+  // reset display
+  UI.msnry.layout();
 
   // preload all photos if not done yet
   genAllSetLinks();

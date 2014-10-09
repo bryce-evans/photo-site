@@ -11,13 +11,16 @@ ui = function() {
     //removed iPad
 
     // load in masonry
-    var container = document.querySelector('#photo-col');
-    UI.msnry = new Masonry(container, {
+    this.msnry_container = document.querySelector('#photo-col');
+    this.msnry_settings = {
       columnWidth : 405,
-      transitionDuration : 0,
-    });
+      popInAnimation : false,
+      transitionDuration : 400,
+    };
+
+    this.msnry = new Masonry(this.msnry_container, this.msnry_settings );
     // allow columns to fit resizing of window
-    UI.msnry.bindResize();
+    this.msnry.bindResize();
 
   }
   // data to be shown after links are loaded
@@ -28,6 +31,14 @@ ui = function() {
   this.requestedToShow = undefined;
 
   this.showDisplayFromMenuId = function(id) {
+    var selector = '#' + id;
+
+    if (UI.currentTab && UI.currentTab.selector === selector) {
+      return;
+    } else {
+      UI.highlightTab(selector);
+    }
+
     switch (id) {
       case "tab-featured":
         this.displayFeatured();
@@ -136,10 +147,7 @@ $(document).ready(function() {
     // $('#stage').show();
     // }
 
-    /// just wait a bit, sometimes the positioning is wrong. #HACKLOL
-    setTimeout(function() {
-      element.removeClass('hidden');
-    }, 400);
+    element.removeClass('hidden');
 
     UI.currentDisplay = element;
   }
@@ -179,90 +187,49 @@ $(document).ready(function() {
   }
 
   UI.displayFeatured = function() {
-    if (UI.currentTab && UI.currentTab.selector === "#tab-featured") {
-      return;
-    } else {
-      UI.currentTab = $('#tab-featured');
-    }
-    UI.highlightTab('#tab-featured');
     UI.setNavAnchor('featured');
     swapDisplayTo('#stage');
     displaySet(sets.featured50);
   }
   UI.displayCollage = function() {
-    if (UI.currentTab.selector === "#tab-collage") {
-      return;
-    }
-    UI.highlightTab('#tab-collage');
     UI.setNavAnchor('collage');
     populateCollage();
     swapDisplayTo('#collage');
 
   }
   UI.displayPerformances = function() {
-    if (UI.currentTab.selector === "#tab-performances") {
-      return;
-    }
-    UI.highlightTab('#tab-performances');
     UI.setNavAnchor('performances');
     swapDisplayTo('#stage');
     displaySet(sets.performances);
   }
   UI.displayPortraits = function() {
-    if (UI.currentTab.selector === "#tab-portraits") {
-      return;
-    }
-    UI.highlightTab('#tab-portraits');
     UI.setNavAnchor('portraits');
     swapDisplayTo('#stage');
     displaySet(sets.portraits);
   }
   UI.displayCats = function() {
-    if (UI.currentTab.selector === "#tab-cats") {
-      return;
-    }
-    UI.highlightTab('#tab-cats');
     UI.setNavAnchor('cats');
     swapDisplayTo('#stage');
     displaySet(sets.cats);
   }
   UI.displayRecent = function() {
-    if (UI.currentTab.selector === "#tab-recent") {
-      return;
-    }
-    UI.highlightTab('#tab-recent');
     UI.setNavAnchor('recent');
     swapDisplayTo('#stage');
     displaySet(sets.stream);
   }
   UI.displayAbout = function() {
-    if (UI.currentTab.selector === "#tab-about") {
-      return;
-    }
-    UI.highlightTab('#tab-about');
     UI.setNavAnchor('about');
     swapDisplayTo('#page-about');
   }
   UI.displayRetouching = function() {
-    if (UI.currentTab.selector === "#tab-retouching") {
-      return;
-    }
-    UI.highlightTab('#tab-retouching');
     UI.setNavAnchor('retouching');
     swapDisplayTo('#retouching');
   }
   UI.displayReviews = function() {
-    if (UI.currentTab.selector === "#tab-reviews") {
-      return;
-    }
-    UI.highlightTab('#tab-reviews');
     UI.setNavAnchor('kind-words');
     swapDisplayTo('#reviews');
   }
   UI.displayContact = function() {
-    if (UI.currentTab.selector === "#tab-contact") {
-      return;
-    }
     UI.highlightTab('#tab-contact');
     UI.setNavAnchor('contact');
 

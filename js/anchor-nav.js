@@ -2,29 +2,29 @@ function checkAnchor() {
   // Check URL using setTimeout as it may not change before
   // listener is called
   UI.navPages = {
-    'featured' : UI.displayFeatured,
-    'collage' : UI.displayCollage,
-    'all' : UI.displayCollage,
-    'performances' : UI.displayPerformances,
-    'portraits' : UI.displayPortraits,
-    'cats' : UI.displayCats,
-    'recent' : UI.displayRecent,
-    'about' : UI.displayAbout,
-    'retouching' : UI.displayRetouching,
-    'kind-words' : UI.displayReviews,
-    'kindwords' : UI.displayReviews,
-    'contact' : UI.displayContact,
+    'featured' : 'tab-featured',
+    'collage' :'tab-collage',
+    'all' : 'tab-collage',
+    'performances' : 'tab-performances',
+    'portraits' : 'tab-portraits',
+    'cats' : 'tab-cats',
+    'recent' : 'tab-recent',
+    'about' : 'tab-about',
+    'retouching' : 'tab-retouching',
+    'kind-words' : 'tab-reviews',
+    'kindwords' : 'tab-reviews',
+    'contact' : 'tab-contact',
   }
   window.setTimeout(doHashCheck, 10)
 }
 
 var doHashCheck = (function() {
   return function() {
-    var fnName = window.location.hash.replace(/^#/, '');
-    console.log(fnName);
+    var tab = window.location.hash.replace(/^#/, '');
+
     // fnName should be a native function, not a host method
-    if (UI.navPages[fnName]) {
-      UI.navPages[fnName]();
+    if (UI.navPages[tab]) {
+      UI.showDisplayFromMenuId(UI.navPages[tab]);
     } else {
     	// main entry page
       UI.highlightTab('#tab-featured');
