@@ -7,7 +7,8 @@ ui = function() {
     this.allLinksLoaded = false;
     this.collageLoaded = false;
     this.menuOpen = false;
-    this.device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    this.device = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    //removed iPad
 
   }
   // data to be shown after links are loaded
@@ -262,12 +263,15 @@ $(document).ready(function() {
   if (UI.device) {
 
     $('#mobile-menu').click(function() {
-      $('#menu').toggle();
+      $('#menu').toggleClass('hidden');
       $('#mobile-menu').toggleClass('open');
     });
 
     $('#menu li').click(function() {
-      $('#menu').toggle();
+      if ($(this).hasClass('separator')) {
+        return;
+      }
+      $('#menu').toggleClass('hidden');
       $('#mobile-menu').toggleClass('open');
 
       $('#mobile-menu').text($('#' + this.id).text());
@@ -277,13 +281,13 @@ $(document).ready(function() {
     });
 
     // only show on drop down
-    $('#menu').hide();
     $('#mobile-menu').text('featured');
     UI.displayFeatured();
 
     // standard listeners
   } else {
-
+    $('#mobile-menu').hide();
+     $('#menu').removeClass('hidden');
     $('#menu li').click(function() {
       UI.showDisplayFromMenuId(this.id);
     });

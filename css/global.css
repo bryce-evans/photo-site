@@ -58,11 +58,23 @@ ul {
   display: none;
 }
 #menu {
-
   margin-right: 12px;
   padding-bottom: 100px;
   height: 100%;
   background-color: transparent;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.4s;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+#menu.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.4s, opacity 0.4s linear;
+  -webkit-transition: visibility 0s linear 0.4s, opacity 0.4s linear;
+  transition: visibility 0s linear 0.4s, opacity 0.4s linear;
 }
 #menu li {
   display: block;
@@ -437,6 +449,13 @@ to {
   opacity: 1;
 } }
 
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  #menu {
+    background: none;
+  }
+}
+
 .mobile-test {
   display: none;
   position: fixed;
@@ -447,7 +466,7 @@ to {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-device-width: 740px) {
+@media screen and (max-device-width: 480px) {
 
   body {
     margin: 0;
@@ -475,7 +494,7 @@ to {
   #mobile-menu {
     height: 20px;
     top: 16px;
-    background-color: white;
+    background-color: transparent;
     color: #EC3F12;
     display: block;
     position: absolute;
@@ -505,7 +524,7 @@ to {
   }
 
   #menu li {
-    background-color: #EC3F12;
+    background-color: transparent;
     color: white !important;
     position: relative;
     padding: 10px 15px;
@@ -519,13 +538,17 @@ to {
     top: 52px;
     right: 4px;
     position: fixed;
-    background-color: #EC3F12;
+    background-color: rgba(236, 63, 18, 0.80);
     padding: 10px 0;
     height: auto;
   }
 
   #menu li:hover {
     background-color: #d83a10;
+    border: none;
+  }
+
+  #menu li.separator {
     border: none;
   }
 
