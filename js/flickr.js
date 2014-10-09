@@ -264,29 +264,31 @@ populatePhotos = function(set_data) {
     return;
   }
 
+  // handler for when photos come in
+  // position is index of photo in list
   var photos_loaded = 0;
-  photo_onload = function(obj) {
-    photos_loaded++;
-    if (photos_loaded == set_data.photos.length) {
-
-      // load in masonry
-      var container = document.querySelector('#photo-col');
-      var msnry = new Masonry(container, {
-        columnWidth : 405
-      });
-      // allow columns to fit resizing of window
-      msnry.bindResize();
-
-			// fade in images when all are ready
-      var imgs = $('.stage-img');
-      imgs.each(function(i) {
-        $(imgs[i]).addClass('fadeIn');
-      });
+  var photo_position = 0;
+  var inQueue = {};
+  photo_onload = function(obj, pos) {
+  	var li = $(obj).parent().parent();
+    if (pos === photo_position) {
+      UI.msnry.appended(li);
+      li.addClass('fadeIn');
+      photo_position++;
+      while (inQueue[photo_position]) {
+        UI.msnry.appended(inQueue[photo_position]);
+        inQueue[photo_position].addClass('fadeIn');
+        delete inQueue[photo_position];
+        photo_position++;
+      }
+    } else {
+      inQueue[pos] = li;
     }
+
   }
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this)" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,'+i+')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $(".exif").click(function() {
     getExif(this.id);

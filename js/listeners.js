@@ -10,6 +10,15 @@ ui = function() {
     this.device = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     //removed iPad
 
+    // load in masonry
+    var container = document.querySelector('#photo-col');
+    UI.msnry = new Masonry(container, {
+      columnWidth : 405,
+      transitionDuration : 0,
+    });
+    // allow columns to fit resizing of window
+    UI.msnry.bindResize();
+
   }
   // data to be shown after links are loaded
   // used in a callback to genSetLinks
@@ -287,7 +296,7 @@ $(document).ready(function() {
     // standard listeners
   } else {
     $('#mobile-menu').hide();
-     $('#menu').removeClass('hidden');
+    $('#menu').removeClass('hidden');
     $('#menu li').click(function() {
       UI.showDisplayFromMenuId(this.id);
     });
