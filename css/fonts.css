@@ -11,6 +11,13 @@
 }
 
 @font-face {
+    font-family: FreightSans Pro Medium;
+    src: url(../fonts/FreigSanProMed.ttf);
+    font-weight:500;
+}
+
+
+@font-face {
     font-family: open sans;
     src: url(../fonts/OpenSans-Regular.ttf);
     font-weight:700;
