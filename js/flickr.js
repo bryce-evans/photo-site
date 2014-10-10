@@ -306,7 +306,7 @@ populatePhotos = function(set_data) {
       inQueue[pos] = li;
     }
   }
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
     $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }

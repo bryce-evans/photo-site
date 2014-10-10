@@ -67,7 +67,7 @@ ul {
   transition: 0.4s;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
-  margin-top: 0;
+  margin-top: 2em;
 }
 
 #menu.hidden {
@@ -154,9 +154,9 @@ ul {
   color: #333;
   cursor: pointer;
   font-weight: 500;
-  width: 16em;
-  height: 5em;
-  background-image: url(/Photography/logos/logo-wt500-prod.svg);
+  width: 15em;
+  height: 4em;
+  background-image: url(/logos/logo-wt500-prod.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -287,7 +287,7 @@ a.extern:visited {
   margin: 0;
   background-color: rgba(255,255,255,.96);
   width: 100%;
-  padding: 2.6em 0 .7em .8em;
+  padding: 3em 0 .7em .8em;
   z-index: 5;
 }
 
@@ -465,7 +465,9 @@ to {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-device-width: 480px) {
+
+/* phones */
+@media screen and (max-device-width: 481px) {
 
   body {
     margin: 0;
@@ -534,6 +536,7 @@ to {
   }
 
   #menu {
+  	margin-top: 0em;
     top: 4.25em;
     right: 4px;
     position: fixed;
@@ -581,7 +584,9 @@ to {
 
   #logo {
     z-index: 11;
-    margin: 1.2em 0 0 1.2em;
+    margin: .5em 0 0 1.2em;
+    width: 10em;
+    height: 3em;
   }
   #stage {
     left: 0;
