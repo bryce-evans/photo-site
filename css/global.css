@@ -254,6 +254,7 @@ h1 {
   margin: .625em 0.46875em 2.03125em .46875em;
   background-color: lime;
   -ms-transform: rotate(30deg);
+  background-size: cover;
   /* -webkit-transform: rotate(30deg); */
   /* transform: rotate(30deg); */
 }

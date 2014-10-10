@@ -11,23 +11,22 @@ ui = function() {
     //removed iPad
 
     // load in masonry
-    this.msnry;
+    this.msnry
     this.msnry_container = document.querySelector('#photo-col');
     this.msnry_settings = {
-    	itemSelector: '.stage-img',
+      itemSelector : '.stage-img',
       isLayoutInstant : false,
       hiddenStyle : {
-      opacity : 0,
-      transform : "scale(0.95)"
+        opacity : 0,
+        transform : "scale(0.95)"
       },
       visibleStyle : {
-      opacity : 1,
-      transform : "scale(1)"
+        opacity : 1,
+        transform : "scale(1)"
       },
 
       columnWidth : 405,
     };
-
 
   }
   // data to be shown after links are loaded
@@ -43,7 +42,13 @@ ui = function() {
     if (UI.currentTab && UI.currentTab.selector === selector) {
       return;
     } else {
-      UI.highlightTab(selector);
+    	// highlight the new tab
+      var hit = $(selector);
+      hit.addClass('selected');
+      if (UI.currentTab && hit !== UI.currentTab) {
+        UI.currentTab.removeClass('selected');
+      }
+      UI.currentTab = hit;
     }
 
     switch (id) {
@@ -175,15 +180,6 @@ $(document).ready(function() {
   // UI.currentTab = hit;
   // });
 
-  UI.highlightTab = function(tab_id) {
-    var hit = $(tab_id);
-    hit.addClass('selected');
-    if (UI.currentTab && hit !== UI.currentTab) {
-      UI.currentTab.removeClass('selected');
-    }
-    UI.currentTab = hit;
-  }
-
   UI.setNavAnchor = function(str) {
     $(function() {
       // Clear the hash in the URL
@@ -202,7 +198,6 @@ $(document).ready(function() {
     UI.setNavAnchor('collage');
     populateCollage();
     swapDisplayTo('#collage');
-
   }
   UI.displayPerformances = function() {
     UI.setNavAnchor('performances');
@@ -237,9 +232,7 @@ $(document).ready(function() {
     swapDisplayTo('#reviews');
   }
   UI.displayContact = function() {
-    UI.highlightTab('#tab-contact');
     UI.setNavAnchor('contact');
-
     swapDisplayTo('#page-contact');
   }
   // MOBILE LISTENERS
