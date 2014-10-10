@@ -208,6 +208,95 @@ h1 {
   color: #E7E7E7;
   display: none;
 }
+#contact-info {
+  margin-top: 15px;
+  font-weight: 700;
+  line-height: 18px;
+}
+#contact-photopile {
+  top: -40px;
+  left: -10px;
+  position: absolute;
+}
+.polaroid {
+  /*  box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+   height: 4.25em;
+   width: 3.5em;
+   position: absolute;
+   border: 1px solid rgba(200,200,200,.2);
+   background-color: white;
+   -ms-transform: rotate(30deg);
+   -webkit-transform: rotate(30deg);
+   transform: rotate(30deg);*/
+
+  box-shadow: 2px 2px 1px rgba(0,0,0,.2);
+  height: 10.625em;
+  width: 8.75em;
+  position: absolute;
+  /*  border: 1px solid rgba(0,0,0,.2);*/
+  background-color: white;
+  -ms-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.polaroid > div {
+  /*  height: 3.1875em;
+   width: 3.125em;
+   margin: .25em .1875em .8125em .1875em;
+   background-color: lime;
+   -ms-transform: rotate(30deg);*/
+  /* -webkit-transform: rotate(30deg); */
+  /* transform: rotate(30deg); */
+
+  height: 7.96875em;
+  width: 7.8125em;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+  margin: .625em 0.46875em 2.03125em .46875em;
+  background-color: lime;
+  -ms-transform: rotate(30deg);
+  /* -webkit-transform: rotate(30deg); */
+  /* transform: rotate(30deg); */
+}
+#polaroid1 {
+  top: 0px;
+  left: 270px;
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  box-shadow: 2px 3px 8px rgba(0,0,0,.2);
+}
+#polaroid1 > div {
+background-image: url(https://farm4.staticflickr.com/3879/14577245950_cebd063f2e_m.jpg);
+background-position-x: -50px;
+}
+#polaroid2 {
+  top: 100px;
+  left: 300px;
+  -moz-transform: rotate(22deg);
+  -ms-transform: rotate(22deg);
+  -webkit-transform: rotate(22deg);
+  transform: rotate(22deg);
+  box-shadow: 3px 1px 9px rgba(0,0,0,.2);
+}
+#polaroid2 > div {
+	  background-image: url(https://farm4.staticflickr.com/3880/14400525293_0dbdb096bf_m.jpg);
+background-position-x: -90px;
+}
+
+#polaroid3 {
+  top: 200px;
+  left: 50px;
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+  box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+}
+#polaroid3 > div {
+background-image: url(https://farm4.staticflickr.com/3893/14377029481_2a578e5f35_m.jpg);
+background-position-x: -20px;
+}
 a.extern {
   color: #007095;
   text-decoration: none;
@@ -536,7 +625,7 @@ to {
   }
 
   #menu {
-  	margin-top: 0em;
+    margin-top: 0em;
     top: 4.25em;
     right: 4px;
     position: fixed;
