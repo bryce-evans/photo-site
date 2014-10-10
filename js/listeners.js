@@ -264,10 +264,13 @@ $(document).ready(function() {
       //show new item
       UI.showDisplayFromMenuId(this.id);
     });
-
+    
+    // move footer
+    $("#footer").hide(); //appendTo('body');
+		 $("#contact-photopile").hide();
+		 
     // only show on drop down
     $('#mobile-menu').text('featured');
-    UI.displayFeatured();
 
     // standard listeners
   } else {
