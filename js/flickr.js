@@ -36,6 +36,11 @@ const sets = {
     id : '72157635020065114',
     photos : []
   },
+  international : {
+    name : 'international',
+    id : '72157639905349993',
+    photos : []
+  },
   cats : {
     name : 'cats',
     id : '72157638337318724',
@@ -296,7 +301,7 @@ populatePhotos = function(set_data) {
       li.addClass('fadeIn');
       photo_position++;
       while (inQueue[photo_position]) {
-      	var elem = (inQueue[photo_position]);
+        var elem = (inQueue[photo_position]);
         UI.msnry.appended(elem);
         inQueue[photo_position].addClass('fadeIn');
         delete inQueue[photo_position];

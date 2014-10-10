@@ -7,6 +7,7 @@ function checkAnchor() {
     'all' : 'tab-collage',
     'performances' : 'tab-performances',
     'portraits' : 'tab-portraits',
+    'international' : 'tab-international',
     'cats' : 'tab-cats',
     'recent' : 'tab-recent',
     'about' : 'tab-about',

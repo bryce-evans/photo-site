@@ -42,7 +42,7 @@ ui = function() {
     if (UI.currentTab && UI.currentTab.selector === selector) {
       return;
     } else {
-    	// highlight the new tab
+      // highlight the new tab
       var hit = $(selector);
       hit.addClass('selected');
       if (UI.currentTab && hit !== UI.currentTab) {
@@ -64,6 +64,10 @@ ui = function() {
 
       case 'tab-portraits':
         this.displayPortraits();
+        break;
+
+      case 'tab-international':
+        this.displayInternational();
         break;
 
       case 'tab-cats':
@@ -208,6 +212,11 @@ $(document).ready(function() {
     UI.setNavAnchor('portraits');
     swapDisplayTo('#stage');
     displaySet(sets.portraits);
+  }
+  UI.displayInternational = function() {
+    UI.setNavAnchor('international');
+    swapDisplayTo('#stage');
+    displaySet(sets.international);
   }
   UI.displayCats = function() {
     UI.setNavAnchor('cats');
