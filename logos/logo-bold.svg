@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="146.84805"
+   height="34.51516"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <clipPath
+       id="clipPath4974"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4976"
+         d="m 58,58 1108,0 0,1467 -1108,0 0,-1467 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4952"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4954"
+         d="M 0,0 400,0 400,210 0,210 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4948"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4950"
+         d="M 0,0 400,0 400,210 0,210 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4940"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4942"
+         d="m 343,965 400,0 0,210 -400,0 0,-210 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4918"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4920"
+         d="M 0,0 400,0 400,271 0,271 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4914"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4916"
+         d="M 0,0 400,0 400,271 0,271 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4906"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4908"
+         d="m 748,734 400,0 0,271 -400,0 0,-271 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4884"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4886"
+         d="M 0,0 400,0 400,599 0,599 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4880"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4882"
+         d="M 0,0 400,0 400,599 0,599 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4872"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4874"
+         d="m 343,362 400,0 0,599 -400,0 0,-599 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4850"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4852"
+         d="M 0,0 400,0 400,263 0,263 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4846"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4848"
+         d="M 0,0 400,0 400,263 0,263 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4838"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4840"
+         d="m 343,96 400,0 0,263 -400,0 0,-263 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4816"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4818"
+         d="M 0,0 400,0 400,667 0,667 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4812"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4814"
+         d="M 0,0 400,0 400,667 0,667 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4804"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4806"
+         d="m 748,63 400,0 0,667 -400,0 0,-667 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4792"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4794"
+         d="m 58,58 1108,0 0,1467 -1108,0 0,-1467 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4492"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4494"
+         d="m 0,0 1527.2433,0 0,1976.4325 L 0,1976.4325 0,0 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="118.51432"
+     inkscape:cy="32.705092"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1235"
+     inkscape:window-height="738"
+     inkscape:window-x="519"
+     inkscape:window-y="108"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-3.7188195,-3.6760015)">
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="1.5942976"
+       id="text5322">
+      <tspan
+         id="tspan5324"
+         y="24.103329"
+         x="1.5942976"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">B</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="19.570341"
+       id="text5326">
+      <tspan
+         id="tspan5328"
+         y="24.103329"
+         x="19.570341"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">r</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="31.205748"
+       id="text5330">
+      <tspan
+         id="tspan5332"
+         y="24.103329"
+         x="31.205748"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">y</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="45.063667"
+       id="text5334">
+      <tspan
+         id="tspan5336"
+         y="24.103329"
+         x="45.063667"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">c</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="59.804058"
+       id="text5338">
+      <tspan
+         id="tspan5340"
+         y="24.103329"
+         x="59.804058"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">e</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="75.165382"
+       id="text5342">
+      <tspan
+         id="tspan5344"
+         y="24.103329"
+         x="75.165382"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#2298b4;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">E</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="91.736"
+       id="text5346">
+      <tspan
+         id="tspan5348"
+         y="24.103329"
+         x="91.736"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#2298b4;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">v</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="105.59389"
+       id="text5350">
+      <tspan
+         id="tspan5352"
+         y="24.103329"
+         x="105.59389"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#2298b4;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">a</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="119.94204"
+       id="text5354">
+      <tspan
+         id="tspan5356"
+         y="24.103329"
+         x="119.94204"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#2298b4;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">n</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="24.103329"
+       x="136.44728"
+       id="text5358">
+      <tspan
+         id="tspan5360"
+         y="24.103329"
+         x="136.44728"
+         style="font-size:32.68372345px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#2298b4;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">s</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="41.040199"
+       id="text5362">
+      <tspan
+         id="tspan5364"
+         y="35.3736"
+         x="41.040199"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">p</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="51.352455"
+       id="text5366">
+      <tspan
+         id="tspan5368"
+         y="35.3736"
+         x="51.352455"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">h</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="61.552044"
+       id="text5370">
+      <tspan
+         id="tspan5372"
+         y="35.3736"
+         x="61.552044"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">o</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="72.044655"
+       id="text5374">
+      <tspan
+         id="tspan5376"
+         y="35.3736"
+         x="72.044655"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">t</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="80.260658"
+       id="text5378">
+      <tspan
+         id="tspan5380"
+         y="35.3736"
+         x="80.260658"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">o</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="90.753273"
+       id="text5382">
+      <tspan
+         id="tspan5384"
+         y="35.3736"
+         x="90.753273"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">g</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="100.53579"
+       id="text5386">
+      <tspan
+         id="tspan5388"
+         y="35.3736"
+         x="100.53579"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">r</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="109.05605"
+       id="text5390">
+      <tspan
+         id="tspan5392"
+         y="35.3736"
+         x="109.05605"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">a</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="118.5118"
+       id="text5394">
+      <tspan
+         id="tspan5396"
+         y="35.3736"
+         x="118.5118"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">p</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="128.82411"
+       id="text5398">
+      <tspan
+         id="tspan5400"
+         y="35.3736"
+         x="128.82411"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">h</tspan>
+    </text>
+    <text
+       style="font-size:6.76214981px"
+       y="35.3736"
+       x="139.02364"
+       id="text5402">
+      <tspan
+         id="tspan5404"
+         y="35.3736"
+         x="139.02364"
+         style="font-size:11.27025032px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:FreightSans Pro Bold;-inkscape-font-specification:FreightSans Pro">y</tspan>
+    </text>
+  </g>
+</svg>
