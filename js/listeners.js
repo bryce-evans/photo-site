@@ -10,9 +10,13 @@ ui = function() {
     this.device = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     //removed iPad
 
+    //https://www.flickr.com/services/api/flickr.photos.getSizes.html
+    this.photo_size = this.device ? '_n' : '_z';
+
     // load in masonry
     this.msnry
     this.msnry_container = document.querySelector('#photo-col');
+    this.photo_width = Math.min(410, Math.max(200, screen.width - 400) / 3);
     this.msnry_settings = {
       itemSelector : '.stage-img',
       isLayoutInstant : false,
@@ -24,8 +28,8 @@ ui = function() {
         opacity : 1,
         transform : "scale(1)"
       },
-
-      columnWidth : 405,
+      // 5px padding
+      columnWidth : this.device ? screen.width : this.photo_width + 5,
     };
 
   }

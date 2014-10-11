@@ -97,7 +97,7 @@ genLinksFromStream = function(display) {
     var photos = data.photos.photo;
     for (var i = 0; i < photos.length; i++) {
       var photo = photos[i];
-      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
       sets.stream.photos.push(new Photo(photo.id, url));
     }
     if (display) {
@@ -136,7 +136,7 @@ genSetLinks = function(set, display) {
     var photos = data.photoset.photo;
     for (var i = 0; i < photos.length; i++) {
       var photo = photos[i];
-      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
 
       for (key in sets) {
 
@@ -198,7 +198,7 @@ genAllSetLinks = function() {
 
         for (var i = 0; i < photos.length; i++) {
           var photo = photos[i];
-          var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret, '_z');
+          var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
 
           sets[this_set_name].photos.push(new Photo(photo.id, url));
 
@@ -328,9 +328,8 @@ clearPhotos = function() {
   $('#photo-col').empty();
 
 }
-getFlickrURL = function(farm, server, id, secret, size) {
-  size = size || '';
-  return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
+getFlickrURL = function(farm, server, id, secret) {
+  return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + UI.photo_size + '.jpg';
 }
 getExif = function(id) {
   $.ajax({

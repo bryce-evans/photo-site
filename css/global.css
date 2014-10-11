@@ -643,7 +643,7 @@ to {
 
   /* not needed but undoes annoying transitions in debug*/
   #menu li:hover {
-    padding: 10px 15px;
+    padding: 5px 15px;
     border: none;
   }
 
@@ -699,6 +699,7 @@ to {
 
   .stage-img {
     margin: 0 0 0px 0;
+    width: 100%;
   }
 
   img {
@@ -753,11 +754,11 @@ to {
     float: none;
     margin-top: 15px;
   }
-  #page-contact{
-  	height: 100%;
+  #page-contact {
+    height: 100%;
   }
-  #contact-photopile{
-  	top: 8em;
+  #contact-photopile {
+    top: 8em;
   }
   #contact-info {
     height: 20em;
