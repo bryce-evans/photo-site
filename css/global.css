@@ -7,7 +7,9 @@
  * Smoke Blue: #9EBCC3
  *
  */
-
+html {
+  background-color: white;
+}
 body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -268,10 +270,8 @@ h1 {
   box-shadow: 2px 3px 8px rgba(0,0,0,.2);
 }
 #polaroid1 > div {
-	background-image: url(https://farm4.staticflickr.com/3750/12883180613_518b8f8556_m.jpg);
-background-position-x: -20px;
-
-
+  background-image: url(https://farm4.staticflickr.com/3750/12883180613_518b8f8556_m.jpg);
+  background-position-x: -20px;
 }
 #polaroid2 {
   top: 100px;
@@ -283,8 +283,8 @@ background-position-x: -20px;
   box-shadow: 3px 1px 9px rgba(0,0,0,.2);
 }
 #polaroid2 > div {
-background-image: url(https://farm4.staticflickr.com/3893/14377029481_2a578e5f35_m.jpg);
-background-position-x: -20px;
+  background-image: url(https://farm4.staticflickr.com/3893/14377029481_2a578e5f35_m.jpg);
+  background-position-x: -20px;
 }
 
 #polaroid3 {
@@ -297,8 +297,8 @@ background-position-x: -20px;
   box-shadow: 2px 2px 6px rgba(0,0,0,.2);
 }
 #polaroid3 > div {
-	background-image: url(https://farm8.staticflickr.com/7325/9654447585_6158104e56_m.jpg);
-background-position-x: -28px;
+  background-image: url(https://farm8.staticflickr.com/7325/9654447585_6158104e56_m.jpg);
+  background-position-x: -28px;
 }
 a.extern {
   color: #007095;
@@ -354,7 +354,7 @@ a.extern:visited {
   width: 400px;
 }
 
-#reviews {
+#reviews, #page-about {
   max-width: 620px;
   width: 100%;
   font-size: 14px;
@@ -373,7 +373,7 @@ a.extern:visited {
   position: absolute;
   z-index: 1;
 }
-#reviews-header {
+#reviews-header, #about-header {
   position: fixed;
   top: 0;
   margin: 0;
@@ -412,7 +412,7 @@ a.extern:visited {
   padding-left: 0;
   left: 5px;
 }
-#reviews ul li .review-img {
+#reviews ul li .review-img, .circle-portrait {
   width: 150px;
   height: 200px;
   background-position: center;
@@ -427,7 +427,7 @@ a.extern:visited {
   -moz-border-radius: 50%;
 }
 
-.review-quote {
+.review-quote, .text-body {
   float: left;
   width: 100%;
   max-width: 435px;
@@ -447,6 +447,10 @@ a.extern:visited {
   margin-top: 10px;
   padding-top: 10px;
   top: 10px;
+}
+
+#aboutme {
+  width: 100%;
 }
 
 .blue {
@@ -707,7 +711,7 @@ to {
     left: 0;
   }
   .info-page {
-  	width: 100%;
+    width: 100%;
     left: 0;
     top: 0;
   }
@@ -723,15 +727,16 @@ to {
   #reviews ul {
     left: 0;
   }
-  .review {
+  .review, .bio {
     margin: 20px;
     height: 100%;
     padding-top: 50px;
   }
-  #review-list, .aboutme {
+  #review-list, #aboutme {
     width: 100%;
+    padding: 0;
   }
-  .review-quote {
+  .review-quote, .text-body {
     margin: 20px 0;
     float: none;
   }
@@ -748,8 +753,21 @@ to {
     float: none;
     margin-top: 15px;
   }
-  
-  
+  #page-contact{
+  	height: 100%;
+  }
+  #contact-photopile{
+  	top: 8em;
+  }
+  #contact-info {
+    height: 20em;
+    margin: 20px;
+    position: relative;
+    top: 12em;
+  }
+  #polaroid1, #polaroid2 {
+    left: 18em;
+  }
 
 }
 

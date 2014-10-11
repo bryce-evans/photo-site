@@ -3,7 +3,7 @@ function checkAnchor() {
   // listener is called
   UI.navPages = {
     'featured' : 'tab-featured',
-    'collage' :'tab-collage',
+    'collage' : 'tab-collage',
     'all' : 'tab-collage',
     'performances' : 'tab-performances',
     'portraits' : 'tab-portraits',
@@ -25,9 +25,13 @@ var doHashCheck = (function() {
 
     // fnName should be a native function, not a host method
     if (UI.navPages[tab]) {
+      if (UI.device) {
+        // only show on drop down
+        $('#mobile-menu').text(tab);
+      }
       UI.showDisplayFromMenuId(UI.navPages[tab]);
     } else {
-    	// main entry page
+      // main entry page
       UI.highlightTab('#tab-featured');
       swapDisplayTo('#stage');
       displaySet(sets.featured50);

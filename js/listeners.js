@@ -36,19 +36,23 @@ ui = function() {
   }
   this.requestedToShow = undefined;
 
+  this.highlightTab = function(tab_selector) {
+    var hit = $(tab_selector);
+    hit.addClass('selected');
+    if (UI.currentTab && hit !== UI.currentTab) {
+      UI.currentTab.removeClass('selected');
+    }
+    UI.currentTab = hit;
+  }
+
   this.showDisplayFromMenuId = function(id) {
     var selector = '#' + id;
 
     if (UI.currentTab && UI.currentTab.selector === selector) {
       return;
     } else {
-      // highlight the new tab
-      var hit = $(selector);
-      hit.addClass('selected');
-      if (UI.currentTab && hit !== UI.currentTab) {
-        UI.currentTab.removeClass('selected');
-      }
-      UI.currentTab = hit;
+      this.highlightTab(selector);
+
     }
 
     switch (id) {
@@ -264,13 +268,10 @@ $(document).ready(function() {
       //show new item
       UI.showDisplayFromMenuId(this.id);
     });
-    
+
     // move footer
-    $("#footer").hide(); //appendTo('body');
-		 $("#contact-photopile").hide();
-		 
-    // only show on drop down
-    $('#mobile-menu').text('featured');
+    $("#footer").hide();
+    //appendTo('body');
 
     // standard listeners
   } else {
