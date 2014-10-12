@@ -11,12 +11,18 @@ ui = function() {
     //removed iPad
 
     //https://www.flickr.com/services/api/flickr.photos.getSizes.html
-    this.photo_size = this.device ? '_n' : '_z';
+    this.size = {
+    	MOBILE : '_n',
+    	MEDIUM : '_z',
+    	LARGE : '_b',
+    }
+    this.photo_size = this.device ? this.size.MOBILE : this.size.MEDIUM;
 
     // load in masonry
     this.msnry
     this.msnry_container = document.querySelector('#photo-col');
     this.photo_width = Math.min(410, Math.max(200, screen.width - 400) / 3);
+    $('#stage').width(this.photo_width * 3 + 15);
     this.msnry_settings = {
       itemSelector : '.stage-img',
       isLayoutInstant : false,

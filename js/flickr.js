@@ -258,7 +258,8 @@ populateCollage = function() {
 
     if (ids.forEach) {
       ids.forEach(function(id) {
-        $('#collage-container').append('<li class="collage-img"><a href="' + getFlickrStreamURL(id) + '" target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
+      	// url = getFlickrStreamURL(id)
+        $('#collage-container').append('<li class="collage-img"><a target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
       });
     }
   }
@@ -313,8 +314,11 @@ populatePhotos = function(set_data) {
   }
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img" ><a href="' + url + '" target="_blank"><img  onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img" ><a target="_blank"><img  width="'+ UI.photo_width +'" onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
+  $('.stage-img').click(function(hit){
+  	showViewer(hit.target.src);
+  });
   $(".exif").click(function() {
     getExif(this.id);
   });
@@ -328,8 +332,18 @@ clearPhotos = function() {
   $('#photo-col').empty();
 
 }
-getFlickrURL = function(farm, server, id, secret) {
-  return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + UI.photo_size + '.jpg';
+changePhotoSize = function(photo_url, size) {
+  size = size || UI.size.LARGE;
+  return photo_url.replace(/_.\.jpg$/, size + '.jpg');
+}
+showViewer = function(url){
+	return;
+	$('#viewer-main').attr('src',changePhotoSize(url,UI.size.LARGE));
+	$('#viewer').show();
+}
+getFlickrURL = function(farm, server, id, secret, size) {
+  size = size || UI.photo_size
+  return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
 }
 getExif = function(id) {
   $.ajax({

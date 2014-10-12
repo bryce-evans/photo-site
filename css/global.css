@@ -321,7 +321,7 @@ a.extern:visited {
   /* left: 15em; */
   text-align: center;
 }
-#view-main {
+#viewer-main {
   background-color: lime;
   width: 50em;
   height: 30em;
@@ -533,7 +533,7 @@ a.extern:visited {
 }
 
 .stage-img a img {
-  width: 400px;
+/*  width: 400px;*/
 }
 
 #photo-col {
