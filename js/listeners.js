@@ -151,13 +151,14 @@ $(document).ready(function() {
       var top = UI.currentDisplay.offset().top;
       UI.currentDisplay.css('top', -$(document).scrollTop() + top);
       UI.currentDisplay.css('position', 'fixed');
+      $('body').scrollTop(0);
 
       // immediately remove the fixed positioning after switch
 
       // reset scroll to top
-      setTimeout(function() {
-        $('body').scrollTop(0);
-      }, 250);
+      // setTimeout(function() {
+        // $('body').scrollTop(0);
+      // }, 250);
       UI.currentDisplay.addClass('hidden');
 
       // fade out stage

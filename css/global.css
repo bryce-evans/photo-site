@@ -332,6 +332,7 @@ a.extern:visited {
    width: 50em;
    height: 30em;*/
   margin-top: 1%;
+  height: auto;  
 }
 #viewer > .tiles {
   height: 3em;
@@ -368,8 +369,8 @@ a.extern:visited {
   left: 240px;
   z-index: 2;
   top: 0;
-  -webkit-transition: filter .1s ease;
-  transition: filter .1s linear;
+  -webkit-transition: filter 1s ease;
+  transition: filter 1s ease;
 }
 #stage.hidden, #collage.hidden {
   opacity: 0;
@@ -386,8 +387,8 @@ a.extern:visited {
 #stage.viewer-on {
   filter: blur(.5em);
   -webkit-filter: blur(.5em);
-  -webkit-transition: filter .1s linear;
-  transition: filter .1s linear;
+  -webkit-transition: filter 1s ease;
+  transition: filter 1s ease;
 }
 .tile {
   width: 180px;
