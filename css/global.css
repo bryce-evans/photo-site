@@ -23,6 +23,11 @@ body {
   background: rgba(236, 63, 18, 0.78);
 }
 
+.stop-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
 }
@@ -316,16 +321,17 @@ a.extern:visited {
   height: 100%;
   background-color: rgba(255,255,255,.6);
   z-index: 20;
-  position: absolute;
+  position: fixed;
   top: 0;
   /* left: 15em; */
   text-align: center;
 }
 #viewer-main {
-  background-color: lime;
-  width: 50em;
-  height: 30em;
-  margin-top: 2em;
+  max-height: 95%;
+  /*   background-color: lime;
+   width: 50em;
+   height: 30em;*/
+  margin-top: 1%;
 }
 #viewer > .tiles {
   height: 3em;
@@ -362,6 +368,8 @@ a.extern:visited {
   left: 240px;
   z-index: 2;
   top: 0;
+  -webkit-transition: filter .1s ease;
+  transition: filter .1s linear;
 }
 #stage.hidden, #collage.hidden {
   opacity: 0;
@@ -376,8 +384,10 @@ a.extern:visited {
 }
 /* stage styles when viewer is on*/
 #stage.viewer-on {
-  filter: blur(1.5em);
-  -webkit-filter: blur(1.5em);
+  filter: blur(.5em);
+  -webkit-filter: blur(.5em);
+  -webkit-transition: filter .1s linear;
+  transition: filter .1s linear;
 }
 .tile {
   width: 180px;
@@ -533,7 +543,7 @@ a.extern:visited {
 }
 
 .stage-img a img {
-/*  width: 400px;*/
+  /*  width: 400px;*/
 }
 
 #photo-col {
@@ -548,6 +558,7 @@ a.extern:visited {
 .fadeIn {
   opacity: 1;
   transition: opacity 0.4s;
+  cursor: pointer;
 }
 
 .fadeOut {

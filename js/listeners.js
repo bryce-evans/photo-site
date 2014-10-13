@@ -121,6 +121,12 @@ $(document).ready(function() {
   $(window).resize(function() {
     $('#stage').width(($(window).width() - 240) + 'px');
   });
+  
+  $('#viewer').click(function(){
+  	$('#viewer').fadeOut();
+  	//$('body').removeClass('stop-scroll');
+  	$('#stage').removeClass('viewer-on');
+  });
 
   // hides current display and shows new one
   // e.g. stage, about, other info etc

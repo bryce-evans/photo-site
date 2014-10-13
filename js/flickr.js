@@ -337,9 +337,13 @@ changePhotoSize = function(photo_url, size) {
   return photo_url.replace(/_.\.jpg$/, size + '.jpg');
 }
 showViewer = function(url){
-	return;
+	if(UI.device){
+		return;
+	}
+	//$('body').addClass('stop-scroll');
+	$('#stage').addClass('viewer-on');
 	$('#viewer-main').attr('src',changePhotoSize(url,UI.size.LARGE));
-	$('#viewer').show();
+	$('#viewer').fadeIn();
 }
 getFlickrURL = function(farm, server, id, secret, size) {
   size = size || UI.photo_size
