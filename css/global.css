@@ -385,10 +385,10 @@ a.extern:visited {
 }
 /* stage styles when viewer is on*/
 #stage.viewer-on {
-  filter: blur(.5em);
+  /* filter: blur(.5em);
   -webkit-filter: blur(.5em);
   -webkit-transition: filter 1s ease;
-  transition: filter 1s ease;
+  transition: filter 1s ease;*/
 }
 .tile {
   width: 180px;

@@ -8,7 +8,7 @@ ui = function() {
     this.collageLoaded = false;
     this.menuOpen = false;
     this.device = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    //removed iPad
+    //removed "iPad"
 
     //https://www.flickr.com/services/api/flickr.photos.getSizes.html
     this.size = {
@@ -154,56 +154,15 @@ $(document).ready(function() {
       $('body').scrollTop(0);
 
       // immediately remove the fixed positioning after switch
-
-      // reset scroll to top
-      // setTimeout(function() {
-        // $('body').scrollTop(0);
-      // }, 250);
       UI.currentDisplay.addClass('hidden');
-
-      // fade out stage
-      // if (UI.currentDisplay === $('#stage')) {
-      // var imgs = $('.stage-img');
-      // imgs.each(function(i) {
-      // $(imgs[i]).removeClass('fadeIn');
-      // $(imgs[i]).addClass('fadeOut');
-      // });
-      // setTimeout(function() {
-      // $('#stage').hide();
-      // }, 400);
-      // }
 
     }
 
-    // fade in stage
-    // if (UI.currentDisplay === $('#stage')) {
-    // var imgs = $('.stage-img');
-    // imgs.each(function(i) {
-    // $(imgs[i]).addClass('fadeIn');
-    // });
-    // $('#stage').show();
-    // }
 
     element.removeClass('hidden');
 
     UI.currentDisplay = element;
   }
-  // $("#menu li").click(function() {
-  //
-  // // update tab color
-  // var hit = $(this);
-  // hit.addClass('selected');
-  // if (UI.currentTab && hit !== UI.currentTab) {
-  // UI.currentTab.removeClass('selected');
-  // }
-  //
-  // // update UI.display
-  // if (hit && hit.context) {
-  // //console.log(hit.context.id);
-  // }
-  // // update current object
-  // UI.currentTab = hit;
-  // });
 
   UI.setNavAnchor = function(str) {
     $(function() {
@@ -301,35 +260,3 @@ $(document).ready(function() {
   }
 
 });
-
-// change header size on scroll
-// from Wolfram <http://reference.wolfram.com/common/javascript/gl-head-scripts.en.js>
-// basically if not at top, add class to shrink. Always fixed at top, only shrunk
-// (window).on('load scroll resize', gl_ThrottleFunction(function() {
-// // create ability to toggle the compact menu
-// if ($('body.gl-header-nocompact').length > 0) {
-// // don't use the compact header (the rest is done with css)
-// gl_FirstRun = false;
-// } else {
-// // switch to compact mode when page is loaded/reloaded while scrolled down
-// if (gl_FirstRun && $(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
-// $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact gl-onload');
-// gl_FirstRun = false;
-// return;
-// }
-// gl_FirstRun = false;
-//
-// // toggle modes on scroll
-// if ($(window).scrollTop() > gl_HeaderFullHeight - gl_HeaderCompactHeight) {
-// // switch to compact mode when user scrolls down
-// $('#gl-header, #gl-header-bg, #gl-header-offset').addClass('gl-compact');
-// } else {
-// // use full size mode by default and switch to it when user scrolls up
-// $('#gl-header, #gl-header-bg, #gl-header-offset').removeClass('gl-compact');
-// }
-// }
-// // emulate horizontal scroll effect on fixed position element
-// $(gl_Header).offset({
-// left : gl_OffsetLeft
-// });
-// }));

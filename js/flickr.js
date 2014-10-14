@@ -38,7 +38,7 @@ const sets = {
   },
   international : {
     name : 'international',
-    id : '72157639905349993',
+    id : '72157648728240922',
     photos : []
   },
   cats : {
@@ -258,7 +258,7 @@ populateCollage = function() {
 
     if (ids.forEach) {
       ids.forEach(function(id) {
-      	// url = getFlickrStreamURL(id)
+        // url = getFlickrStreamURL(id)
         $('#collage-container').append('<li class="collage-img"><a target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
       });
     }
@@ -314,10 +314,10 @@ populatePhotos = function(set_data) {
   }
   for (var i = 0; i < set_data.photos.length; i++) {
     var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img" ><a target="_blank"><img  width="'+ UI.photo_width +'" onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
+    $('#photo-col').append('<li class="stage-img" ><a target="_blank"><img  width="' + UI.photo_width + '" onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
-  $('.stage-img').click(function(hit){
-  	showViewer(hit.target.src);
+  $('.stage-img').click(function(hit) {
+    showViewer(hit.target.src);
   });
   $(".exif").click(function() {
     getExif(this.id);
@@ -336,14 +336,20 @@ changePhotoSize = function(photo_url, size) {
   size = size || UI.size.LARGE;
   return photo_url.replace(/_.\.jpg$/, size + '.jpg');
 }
-showViewer = function(url){
-	if(UI.device){
-		return;
-	}
-	//$('body').addClass('stop-scroll');
-	$('#stage').addClass('viewer-on');
-	$('#viewer-main').attr('src',changePhotoSize(url,UI.size.LARGE));
-	$('#viewer').fadeIn();
+showViewer = function(url) {
+  if (UI.device) {
+    return;
+  }
+  var photo = $('$viewer-main');
+  var img = new Image();
+  img.addEventListener('load', function() {
+    //$('body').addClass('stop-scroll');
+    // $('#stage').addClass('viewer-on');
+    $('#viewer').fadeIn();
+  }, false);
+  img.src = changePhotoSize(url, UI.size.LARGE);
+  photo.src = img.src;
+
 }
 getFlickrURL = function(farm, server, id, secret, size) {
   size = size || UI.photo_size
