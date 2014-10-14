@@ -1,5 +1,3 @@
-// BACKUP - OLD BUT WORKING
-
 const FLICKR = {
   URL : 'https://api.flickr.com/services/rest/',
   KEY : 'd86d9b82925db25bbeb0bf49d7e97e13',
@@ -10,6 +8,7 @@ const FLICKR = {
 getFlickrStreamURL = function(id) {
   return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
 }
+
 Photo = function(id, url) {
   this.id = id;
   this.url = url;
@@ -17,6 +16,7 @@ Photo = function(id, url) {
     return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
   };
 }
+
 // {<string> photo_id, <string> url}
 var allLinks = {};
 
@@ -79,9 +79,8 @@ const sets = {
   }
 };
 
-//
+// gets the most recent photos in Flickr Stream
 genLinksFromStream = function(display) {
-
   $.ajax({
     type : 'POST',
     url : FLICKR.URL,
@@ -105,6 +104,7 @@ genLinksFromStream = function(display) {
     }
   });
 }
+
 // generates all links to a set
 // displays the set on stage if display = true
 genSetLinks = function(set, display) {
@@ -153,6 +153,7 @@ genSetLinks = function(set, display) {
 
   }.bind(this));
 }
+
 // gets the links to a set
 genAllSetLinks = function() {
 
@@ -205,7 +206,9 @@ genAllSetLinks = function() {
           allLinks[photo.id] = url;
 
         }
+        
         waiting_on--;
+        
         // last set arrives!
         if (waiting_on == 0) {
           UI.allLinksLoaded = true;
@@ -224,18 +227,24 @@ genAllSetLinks = function() {
       }.bind(this));
     }
   }
-
 }
+
+// required to parse return data from Flickr as JSON
 jsonFlickrApi = function(data) {
   return data;
 }
+
+// displays a set to the screen
 displaySet = function(set_data) {
   clearPhotos();
+  
   // reset scroll to top
   $('body').scrollTop(0);
 
   populatePhotos(set_data);
 }
+
+// fills up the collage tab with photos
 populateCollage = function() {
 
   if (!UI.allLinksLoaded) {
@@ -264,6 +273,7 @@ populateCollage = function() {
     }
   }
 }
+
 // populates the stage with the photos from <Obj> set_data
 populatePhotos = function(set_data) {
   // load if not loaded yet
@@ -272,24 +282,11 @@ populatePhotos = function(set_data) {
     return;
   }
 
-  // var photos_loaded = 0;
-  // photo_onload = function(obj) {
-  // photos_loaded++;
-  // if (photos_loaded == 5) {
-
   // load in masonry
   UI.msnry = new Masonry(UI.msnry_container, UI.msnry_settings);
   // allow columns to fit resizing of window
   UI.msnry.bindResize();
 
-  // fade in images when all are ready
-  // var imgs = $('.stage-img');
-  // imgs.each(function(i) {
-  // $(imgs[i]).addClass('fadeIn');
-  // });
-  // }
-  // }
-  //
   // handler for when photos come in
   // position is index of photo in list
   var photos_loaded = 0;
@@ -325,17 +322,20 @@ populatePhotos = function(set_data) {
 
   // preload all photos if not done yet
   genAllSetLinks();
-
 }
+
+// clears all photos being displayed
 clearPhotos = function() {
-
   $('#photo-col').empty();
-
 }
+
+// takes a link and returns a link to a different size of same image
 changePhotoSize = function(photo_url, size) {
   size = size || UI.size.LARGE;
   return photo_url.replace(/_.\.jpg$/, size + '.jpg');
 }
+
+// displays a viewer for individual photos
 showViewer = function(url) {
   if (UI.device) {
     return;
@@ -349,12 +349,16 @@ showViewer = function(url) {
   }, false);
   img.src = changePhotoSize(url, UI.size.LARGE);
   photo.src = img.src;
-
 }
+
+// gets link to image
+// size optional - default based on screen size and device
 getFlickrURL = function(farm, server, id, secret, size) {
   size = size || UI.photo_size
   return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
 }
+
+// returns Flickr exif data for photo by id
 getExif = function(id) {
   $.ajax({
     type : 'POST',
@@ -370,6 +374,4 @@ getExif = function(id) {
   }).done( function(response) {
     console.log(response);
   }.bind(this));
-
 }
-
