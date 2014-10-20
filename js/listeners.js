@@ -124,6 +124,7 @@ $(document).ready(function() {
   
   $('#viewer').click(function(){
   	$('#viewer').fadeOut();
+  	$('#viewer-main').fadeOut();
   	//$('body').removeClass('stop-scroll');
   	$('#stage').removeClass('viewer-on');
   });
@@ -151,7 +152,7 @@ $(document).ready(function() {
       var top = UI.currentDisplay.offset().top;
       UI.currentDisplay.css('top', -$(document).scrollTop() + top);
       UI.currentDisplay.css('position', 'fixed');
-      $('body').scrollTop(0);
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
 
       // immediately remove the fixed positioning after switch
       UI.currentDisplay.addClass('hidden');
@@ -226,6 +227,8 @@ $(document).ready(function() {
   }
   // MOBILE LISTENERS
   if (UI.device) {
+  	
+  	$('#mobile-menu').text('featured');
 
     $('#mobile-menu').click(function() {
       $('#menu').toggleClass('hidden');

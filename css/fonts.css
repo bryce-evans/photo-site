@@ -1,32 +1,7 @@
 @font-face {
-    font-family: FreightSans Pro Book;
-    src: url(../fonts/FreigSanProBook.ttf);
-    font-weight:700;
-}
-
-@font-face {
-    font-family: FreightSans Pro Bold;
-    src: url(../fonts/FreigSanProBold.ttf);
-    font-weight:900;
-}
-
-@font-face {
-    font-family: FreightSans Pro Medium;
-    src: url(../fonts/FreigSanProMed.ttf);
-    font-weight:500;
-}
-
-
-@font-face {
     font-family: open sans;
     src: url(../fonts/OpenSans-Regular.ttf);
     font-weight:700;
-}
-
-@font-face {
-    font-family: open sans;
-    src: url(../fonts/OpenSans-Light.ttf);
-    font-weight:400;
 }
 
 @font-face {
@@ -36,8 +11,7 @@
 }
 
 @font-face {
-    font-family: cabin;
-    src: url(../fonts/Cabin-Regular.otf);
-    font-weight:700;
+    font-family: FreightSans Pro Bold;
+    src: url(../fonts/FreigSanProBold.ttf);
+    font-weight:900;
 }
-

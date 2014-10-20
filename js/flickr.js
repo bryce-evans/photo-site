@@ -314,7 +314,7 @@ populatePhotos = function(set_data) {
     $('#photo-col').append('<li class="stage-img" ><a target="_blank"><img  width="' + UI.photo_width + '" onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
   }
   $('.stage-img').click(function(hit) {
-    showViewer(hit.target.src);
+    onImageClick(hit.target);
   });
   $(".exif").click(function() {
     getExif(this.id);
@@ -336,19 +336,21 @@ changePhotoSize = function(photo_url, size) {
 }
 
 // displays a viewer for individual photos
-showViewer = function(url) {
+onImageClick = function(target) {
   if (UI.device) {
+  	target.src = changePhotoSize(target.src, UI.size.MEDIUM);
     return;
   }
-  var photo = $('$viewer-main');
+  var photo = $('#viewer-main');
   var img = new Image();
   img.addEventListener('load', function() {
     //$('body').addClass('stop-scroll');
     // $('#stage').addClass('viewer-on');
-    $('#viewer').fadeIn();
+    $('#viewer-main').fadeIn();
   }, false);
-  img.src = changePhotoSize(url, UI.size.LARGE);
-  photo.src = img.src;
+  img.src = changePhotoSize(target.src, UI.size.LARGE);
+  photo.attr('src', img.src);
+  $('#viewer').fadeIn();
 }
 
 // gets link to image
