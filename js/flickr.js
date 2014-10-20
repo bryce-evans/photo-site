@@ -239,7 +239,7 @@ displaySet = function(set_data) {
   clearPhotos();
   
   // reset scroll to top
-  $('body').scrollTop(0);
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 
   populatePhotos(set_data);
 }
