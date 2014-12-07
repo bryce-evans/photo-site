@@ -1,0 +1,53 @@
+h1 {
+  font-size: 46px;
+  letter-spacing: .150em;
+  color: #F07454;
+  font-family: open sans, sans serif;
+  font-weight: 700;
+  width: 100%;
+  padding: .5em 0 0em .8em;
+  margin-bottom: .5em;
+}
+.text-body {
+  font-size: 14px;
+  font-weight: 700;
+  color: #545D5F;
+  font-family: open sans, sans;
+  margin: 1em 0 0 3em;
+  float: none;
+  max-width: 800px;
+}
+.text-body>div{
+  margin-bottom: 1em;
+}
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+.center>div {
+  max-width: 550px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+a {
+  font-family: open sans;
+  font-size: 14px;
+  color: #008CBA;
+}
+a:hover {
+  color: #EC3F12;
+}
+
+.bold {
+  font-weight: 900;
+}
+.indent {
+  margin-left: 1.5em;
+  margin-top: .5em;
+}
+.underline {
+  width: 50%;
+  border-bottom: 1px solid #008CBA;
+  margin: 2em 0 0 0em;
+}
