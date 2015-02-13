@@ -16,7 +16,7 @@ ui = function() {
     	MEDIUM : '_z',
     	LARGE : '_b',
     }
-    this.photo_size = this.device ? this.size.MOBILE : this.size.MEDIUM;
+    this.photo_size = this.size.MEDIUM; //this.device ? this.size.MOBILE : this.size.MEDIUM;
 
     // load in masonry
     this.msnry
