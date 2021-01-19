@@ -259,7 +259,6 @@ h1 {
   width: 7.8125em;
   box-shadow: inset 0 0 10px rgba(0,0,0,.5);
   margin: .625em 0.46875em 2.03125em .46875em;
-  background-color: lime;
   -ms-transform: rotate(30deg);
   background-size: cover;
   /* -webkit-transform: rotate(30deg); */
@@ -268,15 +267,15 @@ h1 {
 #polaroid1 {
   top: 0px;
   left: 270px;
-  -moz-transform: rotate(-16deg);
-  -ms-transform: rotate(-16deg);
-  -webkit-transform: rotate(-16deg);
-  transform: rotate(-16deg);
+  -moz-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
+  -webkit-transform: rotate(-14deg);
+  transform: rotate(-14deg);
   box-shadow: 2px 3px 8px rgba(0,0,0,.2);
 }
 #polaroid1 > div {
   background-image: url(https://farm1.staticflickr.com/900/27235784608_1a296c36b4_m.jpg);
-  background-position-x: -20px;
+  background-position-x: -14px;
 }
 #polaroid2 {
   top: 100px;
@@ -289,7 +288,8 @@ h1 {
 }
 #polaroid2 > div {
   background-image: url(https://farm4.staticflickr.com/3868/15342405936_b2fafcd416_m.jpg);
-  background-position-x: -20px;
+  background-position-x: 0px;
+  background-position-y: -18px;
 }
 
 #polaroid3 {
@@ -303,7 +303,7 @@ h1 {
 }
 #polaroid3 > div {
   background-image: url(http://farm3.staticflickr.com/2856/12016220125_a109338315_m.jpg);
-  background-position-x: -28px;
+  background-position-x: -29px;
 }
 a.extern {
   color: #007095;
@@ -328,9 +328,6 @@ a.extern:visited {
 }
 #viewer-main {
   max-height: 95%;
-  /*   background-color: lime;
-   width: 50em;
-   height: 30em;*/
   margin-top: 1%;
   height: auto;  
 }
@@ -619,7 +616,6 @@ to {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: green;
   z-index: 100;
   padding: 0;
   margin: 0;
