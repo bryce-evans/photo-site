@@ -27,7 +27,7 @@ class Photo extends Object {
   */
   static getFlickrPhotoUrl(farm, server, id, secret, size) {
     size = size || UI.photo_size;
-    return `http://farm${farm}.staticflickr.com/${server}/${id}_${secret}${size}.jpg`;
+    return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}${size}.jpg`;
   }
 }
 
