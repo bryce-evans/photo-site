@@ -5,16 +5,30 @@ const FLICKR = {
   ID : '96143629@N07'
 };
 
-getFlickrStreamURL = function(id) {
-  return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
+function getFlickrStreamUrl (id) {
+  return `https://www.flickr.com/photos/${FLICKR.ID}/${id}`;
 }
 
-Photo = function(id, url) {
-  this.id = id;
-  this.url = url;
-  this.getStreamURL = function() {
-    return 'https://www.flickr.com/photos/' + FLICKR.ID + "/" + id;
-  };
+class Photo extends Object {
+  constructor(metadata, request_size) {
+    super();
+    const farm = metadata.farm;
+    const server = metadata.server;
+    const id = metadata.id;
+    const secret = metadata.secret
+    const size = request_size;
+
+    this.id = id;
+    this.url = Photo.getFlickrPhotoUrl(farm, server, id, secret, size);
+  }
+
+  /** Gets link to image.
+      size optional - default based on screen size and device.
+  */
+  static getFlickrPhotoUrl(farm, server, id, secret, size) {
+    size = size || UI.photo_size;
+    return `http://farm${farm}.staticflickr.com/${server}/${id}_${secret}${size}.jpg`;
+  }
 }
 
 // {<string> photo_id, <string> url}
@@ -95,9 +109,7 @@ genLinksFromStream = function(display) {
     var data = eval(response);
     var photos = data.photos.photo;
     for (var i = 0; i < photos.length; i++) {
-      var photo = photos[i];
-      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
-      sets.stream.photos.push(new Photo(photo.id, url));
+      sets.stream.photos.push(new Photo(photos[i]));
     }
     if (display) {
       displaySet(sets.stream);
@@ -132,17 +144,14 @@ genSetLinks = function(set, display) {
     }
   }).done( function(response) {
 
-    var data = eval(response);
-    var photos = data.photoset.photo;
+    const data = eval(response);
+    const photos = data.photoset.photo;
     for (var i = 0; i < photos.length; i++) {
-      var photo = photos[i];
-      var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
-
+      var photo = new Photo(photos[i]);
       for (key in sets) {
-
         if (sets[key].id == data.photoset.id) {
-          sets[key].photos.push(new Photo(photo.id, url));
-          allLinks[photo.id] = url;
+          sets[key].photos.push(photo);
+          allLinks[photo.id] = photo.url;
         }
       }
     }
@@ -154,16 +163,16 @@ genSetLinks = function(set, display) {
   }.bind(this));
 }
 
-// gets the links to a set
+// Gets the links to a set
 genAllSetLinks = function() {
 
-  // this function can only run once!
+  // This function can only run once!
   if (UI.allLinksLoaded || UI.allLinksLoading) {
     return;
   }
   UI.allLinksLoading = true;
 
-  // todo - wait on stream photos in semaphore
+  // TODO: wait on stream photos in semaphore.
   genLinksFromStream();
 
   var waiting_on = Object.keys(sets).length - 2;
@@ -198,13 +207,9 @@ genAllSetLinks = function() {
         }
 
         for (var i = 0; i < photos.length; i++) {
-          var photo = photos[i];
-          var url = getFlickrURL(photo.farm, photo.server, photo.id, photo.secret);
-
-          sets[this_set_name].photos.push(new Photo(photo.id, url));
-
-          allLinks[photo.id] = url;
-
+          var photo = new Photo(photos[i]);
+          sets[this_set_name].photos.push(photo);
+          allLinks[photo.id] = photo.url;
         }
         
         waiting_on--;
@@ -267,8 +272,8 @@ populateCollage = function() {
 
     if (ids.forEach) {
       ids.forEach(function(id) {
-        // url = getFlickrStreamURL(id)
-        $('#collage-container').append('<li class="collage-img"><a target="_blank"><div class="tile" style="background-image: url(' + allLinks[id] + ')"></div></a></li>');
+        // url = getFlickrStreamUrl(id)
+        $('#collage-container').append(`<li class="collage-img"><a target="_blank"><div class="tile" style="background-image: url(${allLinks[id]})"></div></a></li>`);
       });
     }
   }
@@ -289,7 +294,6 @@ populatePhotos = function(set_data) {
 
   // handler for when photos come in
   // position is index of photo in list
-  var photos_loaded = 0;
   var photo_position = 0;
   var inQueue = {};
   photo_onload = function(obj, pos) {
@@ -310,8 +314,9 @@ populatePhotos = function(set_data) {
     }
   }
   for (var i = 0; i < set_data.photos.length; i++) {
-    var url = set_data.photos[i].getStreamURL();
-    $('#photo-col').append('<li class="stage-img" ><a target="_blank"><img  width="' + UI.photo_width + '" onload="photo_onload(this,' + i + ')" id="' + set_data.photos[i].id + '" src="' + set_data.photos[i].url + '" /></a></li>');
+    const id = set_data.photos[i].id;
+    const url = set_data.photos[i].url;
+    $('#photo-col').append(`<li class="stage-img" ><a target="_blank"><img  width="${UI.photo_width}" onload="photo_onload(this,${i})" id="${id}" src="${url}" /></a></li>`);
   }
   $('.stage-img').click(function(hit) {
     onImageClick(hit.target);
@@ -353,14 +358,8 @@ onImageClick = function(target) {
   $('#viewer').fadeIn();
 }
 
-// gets link to image
-// size optional - default based on screen size and device
-getFlickrURL = function(farm, server, id, secret, size) {
-  size = size || UI.photo_size
-  return 'http://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + size + '.jpg';
-}
 
-// returns Flickr exif data for photo by id
+// returns Flickr exif data for photo by id.
 getExif = function(id) {
   $.ajax({
     type : 'POST',

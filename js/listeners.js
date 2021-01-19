@@ -10,11 +10,11 @@ ui = function() {
     this.device = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     //removed "iPad"
 
-    //https://www.flickr.com/services/api/flickr.photos.getSizes.html
+    // https://www.flickr.com/services/api/flickr.photos.getSizes.html
     this.size = {
-    	MOBILE : '_n',
-    	MEDIUM : '_z',
-    	LARGE : '_b',
+    	MOBILE : '_z',
+    	MEDIUM : '_c',
+    	LARGE : '_o',
     }
     this.photo_size = this.size.MEDIUM; //this.device ? this.size.MOBILE : this.size.MEDIUM;
 

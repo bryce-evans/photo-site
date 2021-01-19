@@ -668,7 +668,7 @@ to {
     max-width: 8.5em;
   }
   #mobile-menu::before {
-    content: '▶  ';
+    content: '\025B6  ';
     display: inline;
     float: left;
     margin-right: 5px;
