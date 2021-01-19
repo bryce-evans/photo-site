@@ -667,11 +667,20 @@ to {
     width: auto;
     max-width: 8.5em;
   }
+
+  @keyframes rotate_arrow_down {
+    from {transform: rotate(-90deg);}
+    to {transform: rotate(0deg);}
+  }
+
   #mobile-menu::before {
-    content: '\025B6  ';
+    content: '▼';
+    transform: rotate(-90deg);
     display: inline;
     float: left;
     margin-right: 5px;
+    animation-name: rotate_arrow_down;
+    animation-direction: alternate;
   }
 
   #mobile-menu.open {
@@ -680,8 +689,11 @@ to {
     border-radius: .8em .8em 0 0;
   }
 
+
   #mobile-menu.open::before {
-    content: '▼  ';
+    transform: rotate(0deg);
+    animation-name: rotate_arrow_down;
+    animation-duration: 1s;
   }
 
   #menu li {
