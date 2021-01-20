@@ -14,7 +14,7 @@ ui = function() {
     this.size = {
     	MOBILE : '_z',
     	MEDIUM : '_c',
-    	LARGE : '_o',
+    	LARGE : '_b',
     }
     this.photo_size = this.size.MEDIUM; //this.device ? this.size.MOBILE : this.size.MEDIUM;
 
