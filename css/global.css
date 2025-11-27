@@ -1,12 +1,24 @@
-/*
- * COLORS:
- *
- * Orange: #EC3F12
- * Green: #33A000
- * Blue/Teal : #2298B4
- * Smoke Blue: #9EBCC3
- *
- */
+:root {
+  --color-orange: #EC3F12;
+  --color-orange-hover: #F07454;
+  --color-green: #33A000;
+  --color-blue-teal: #2298B4;
+  --color-blue-dark: #007095;
+  --color-blue-medium: #008CBA;
+  --color-smoke-blue: #9EBCC3;
+  --color-teal-light: #8DB2BB;
+  --color-gray-light: #ccc;
+  --color-gray-medium: #545D5F;
+  --color-gray-dark: #333;
+  --color-gray-darker: #494949;
+  --color-bg-light: #F2F9FC;
+  --color-bg-gray: #E7E7E7;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
 html {
   background-color: white;
 }
@@ -16,11 +28,11 @@ body {
 }
 
 ::selection {
-  background: rgba(236, 63, 18, 0.78);
+  background: rgba(236, 63, 18, 0.78); /* --color-orange with opacity */
   color: white;
 }
 ::-moz-selection {
-  background: rgba(236, 63, 18, 0.78);
+  background: rgba(236, 63, 18, 0.78); /* --color-orange with opacity */
 }
 
 .stop-scroll {
@@ -31,6 +43,11 @@ body {
 ul {
   list-style: none;
 }
+
+/* ========================================
+   NAVIGATION & MENU
+   ======================================== */
+
 #top-fader {
   display: none;
   position: fixed;
@@ -71,7 +88,6 @@ ul {
   background-color: transparent;
   visibility: visible;
   opacity: 1;
-  transition: 0.4s;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
   margin-top: 2em;
@@ -80,15 +96,14 @@ ul {
 #menu.hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 0.4s, opacity 0.4s linear;
   -webkit-transition: visibility 0s linear 0.4s, opacity 0.4s linear;
   transition: visibility 0s linear 0.4s, opacity 0.4s linear;
 }
 #menu li {
   display: block;
   font-family: open sans;
-  border-right: 1px solid #CCC;
-  color: #9EBCC3;
+  border-right: 1px solid var(--color-gray-light);
+  color: var(--color-smoke-blue);
   letter-spacing: .1em;
   font-size: 12px;
   text-align: right;
@@ -105,7 +120,7 @@ ul {
   width: 40px;
   height: 40px;
   margin: 0 0 5px 10px;
-  background-color: #9EBCC3;
+  background-color: var(--color-smoke-blue);
   -webkit-transition: margin 0.1s ease-in;
   -moz-transition: margin 0.1s ease-in;
   -o-transition: margin 0.1s ease-in;
@@ -123,8 +138,8 @@ ul {
 }
 
 #menu li:hover {
-  color: #007095;
-  border-right: 2px solid #008CBA;
+  color: var(--color-blue-dark);
+  border-right: 2px solid var(--color-blue-medium);
   padding: 0 9px;
   cursor: pointer;
   -webkit-transition: color 0.2s ease-in;
@@ -133,32 +148,37 @@ ul {
 }
 
 #menu li.selected {
-  color: #EC3F12;
-  border-right: 2px solid #EC3F12;
+  color: var(--color-orange);
+  border-right: 2px solid var(--color-orange);
   padding: 0 9px;
   font-weight: 900;
 }
 
 #menu li.separator {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--color-gray-light);
   cursor: default !important;
 }
 
 .separator:hover {
-  border-right: 1px solid #ccc !important;
+  border-right: 1px solid var(--color-gray-light) !important;
 }
+
+/* ========================================
+   LOGO & FOOTER
+   ======================================== */
+
 #footer {
   font-family: FreightSans Pro Bold;
   font-weight: 900;
   font-size: 12px;
-  color: #ccc;
+  color: var(--color-gray-light);
   position: absolute;
   bottom: 15px;
   left: 122px;
 }
 #logo {
   font-family: FreightSans Pro Medium;
-  color: #333;
+  color: var(--color-gray-dark);
   cursor: pointer;
   font-weight: 500;
   width: 15em;
@@ -175,6 +195,10 @@ ul {
   transform: scale(.9,.9) translate(-14px,-15px);
 }
 
+/* ========================================
+   INFO PAGES (About, Contact, Reviews)
+   ======================================== */
+
 h1 {
   font-family: FreightSans Pro Book;
   font-size: 48px;
@@ -188,7 +212,7 @@ h1 {
   position: absolute;
   font-family: open sans;
   font-size: 12px;
-  color: #333;
+  color: var(--color-gray-dark);
   opacity: 1;
   -webkit-transition: opacity .5s, left .5s;
   transition: opacity .5s, left .5s;
@@ -205,14 +229,13 @@ h1 {
   font-family: open sans, sans serif;
   font-weight: 700;
   margin-top: 14px;
-  color: #8DB2BB;
-  color: #F07454;
+  color: var(--color-orange-hover);
   /*border-bottom: 1px solid rgba(141, 178, 187, 0.16);*/
 }
 #contact-header-big {
   letter-spacing: .2em;
   font-size: 32px;
-  color: #E7E7E7;
+  color: var(--color-bg-gray);
   display: none;
 }
 #contact-info {
@@ -306,15 +329,19 @@ h1 {
   background-position-x: -29px;
 }
 a.extern {
-  color: #007095;
+  color: var(--color-blue-dark);
   text-decoration: none;
 }
 a.extern:hover {
-  color: #EC3F12;
+  color: var(--color-orange);
 }
 a.extern:visited {
-  color: #008CBA;
+  color: var(--color-blue-medium);
 }
+
+/* ========================================
+   PHOTO VIEWER & GALLERY
+   ======================================== */
 
 #viewer {
   width: 100%;
@@ -391,7 +418,7 @@ a.extern:visited {
   width: 180px;
   height: 180px;
   display: block;
-  background-color: #F2F9FC;
+  background-color: var(--color-bg-light);
   background-position: center;
   background-size: cover;
   float: left;
@@ -418,7 +445,7 @@ a.extern:visited {
   width: 100%;
   font-size: 14px;
   font-weight: 700;
-  color: #545D5F;
+  color: var(--color-gray-medium);
 }
 
 #review-list {
@@ -473,14 +500,11 @@ a.extern:visited {
 }
 #reviews ul li .review-img, .circle-portrait {
   width: 150px;
-  height: 200px;
+  height: 150px;
   background-position: center;
   background-size: cover;
-  border-radius: 6px;
   float: left;
   box-shadow: 1px 1px 2px rgba(0,0,0,.3);
-  width: 150px;
-  height: 150px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -502,7 +526,7 @@ a.extern:visited {
   font-weight: 900;
   font-size: 13px;
   margin-bottom: 10px;
-  color: #494949;
+  color: var(--color-gray-darker);
   margin-top: 10px;
   padding-top: 10px;
   top: 10px;
@@ -513,7 +537,7 @@ a.extern:visited {
 }
 
 .blue {
-  color: #2298B4;
+  color: var(--color-blue-teal);
 }
 .spaceout {
   letter-spacing: .8em;
@@ -575,6 +599,10 @@ a.extern:visited {
   animation-duration: .4s;
 }
 
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
 @-webkit-keyframes fadeIn {
 from {
   opacity: 0;
@@ -603,6 +631,10 @@ fadeIn {from {
 to {
   opacity: 1;
 } }
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 
 /* Tablets */
 @media only screen and (min-device-width: 768px) {
@@ -651,12 +683,12 @@ to {
     height: 20px;
     top: 16px;
     background-color: transparent;
-    color: #EC3F12;
+    color: var(--color-orange);
     display: block;
     position: absolute;
     right: 16px;
     font-size: 13px;
-    border: 1px solid #EC3F12;
+    border: 1px solid var(--color-orange);
     border-radius: 8px;
     padding: 8px;
     font-family: open sans, sans serif;
@@ -842,6 +874,10 @@ to {
   }
 
 }
+
+/* ========================================
+   TOOLTIP STYLES
+   ======================================== */
 
 /* Tooltip styles */
 .ui-tooltip, .arrow:after {
