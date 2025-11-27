@@ -1,334 +1,321 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="og:description" content="" data-dynamic="true">
-        <title>Bryce Evans Photography</title>
-        <script src="js/jquery-2.1.js"></script>
 
-        <script src="js/listeners.js"></script>
-        <script src="js/flickr.js"></script>
-        <script src="js/anchor-nav.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="og:description" content="" data-dynamic="true">
+    <title>Bryce Evans Photography</title>
+    <script src="js/jquery-2.1.js"></script>
 
-        <link rel="stylesheet" href="css/fonts.css" />
-        <link rel="stylesheet" href="css/global.css" />
+    <script src="js/listeners.js"></script>
+    <script src="js/flickr.js"></script>
+    <script src="js/anchor-nav.js"></script>
 
-        <!-- Google Analytics -->
-        <script>
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] ||
-        function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/global.css" />
 
-      ga('create', 'UA-37666233-2', 'auto');
-      ga('send', 'pageview');
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        </script>
+        ga('create', 'UA-37666233-2', 'auto');
+        ga('send', 'pageview');
 
-        <!-- Facebook Conversion Code for Photo Mouse Tracker -->
-        <script>
-      (function() {
-        var _fbq = window._fbq || (window._fbq = []);
-        if (!_fbq.loaded) {
-          var fbds = document.createElement('script');
-          fbds.async = true;
-          fbds.src = '//connect.facebook.net/en_US/fbds.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(fbds, s);
-          _fbq.loaded = true;
-        }
-      })();
-      window._fbq = window._fbq || [];
-      window._fbq.push(['track', '6019144974000', {
-        'value' : '0.00',
-        'currency' : 'USD'
-      }]);
-        </script>
-<!--     Facebook Target Audience Pixel     -->
-<script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-    var fbds = document.createElement('script');
-    fbds.async = true;
-    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(fbds, s);
-    _fbq.loaded = true;
-  }
-  _fbq.push(['addPixelId', '195859017270618']);
-})();
-window._fbq = window._fbq || [];
-window._fbq.push(['track', 'PixelInitialized', {}]);
-</script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=195859017270618&amp;ev=PixelInitialized" /></noscript>
-        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6019144974000&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
-        </noscript>
+    </script>
 
-    </head>
-    <body onload="checkAnchor();">
+    <!-- Facebook Conversion Code for Photo Mouse Tracker -->
+    <script>
+        (function () {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6019144974000', {
+            'value': '0.00',
+            'currency': 'USD'
+        }]);
+    </script>
+    <!--     Facebook Target Audience Pixel     -->
+    <script>(function () {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+            _fbq.push(['addPixelId', '195859017270618']);
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', 'PixelInitialized', {}]);
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none"
+            src="https://www.facebook.com/tr?id=195859017270618&amp;ev=PixelInitialized" /></noscript>
+    <noscript><img height="1" width="1" alt="" style="display:none"
+            src="https://www.facebook.com/tr?ev=6019144974000&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    </noscript>
 
-        <div id="top-fader"></div>
+</head>
 
-        <div id='left-col'>
-            <div>
-                <!--             <div id="logo"></div> -->
-                <div id='logo'>
+<body onload="checkAnchor(); document.getElementById('copyright-year').textContent = new Date().getFullYear();">
 
-                </div>
+    <div id="top-fader"></div>
 
-                <div id='mobile-menu'></div>
-                <ul id='menu' class='hidden'>
-
-                    <li id='tab-featured'>
-                        <a> featured </a>
-                    </li>
-                    <li id='tab-collage' style="display: none;">
-                        <a> collage </a>
-                    </li>
-                    <li class='separator'>
-                        <span style='opacity: 0;'>.</span>
-                    </li>
-                    <li id='tab-portraits'>
-                        <a>portraits </a>
-                    </li>
-                    <li id='tab-performances'>
-                        <a >performances </a>
-                    </li>
-                    <li id='tab-international'>
-                        <a>international</a>
-                    </li>
-                    <li id='tab-cats'>
-                        <a>cats</a>
-                    </li>
-                    <li id='tab-recent'>
-                        <a>recent </a>
-                    </li>
-
-                    <li class='separator'>
-                        <span style='opacity: 0;'>.</span>
-                    </li>
-                    <li id='tab-about'>
-                        <a> about </a>
-
-                    </li>
-
-                    <li id='tab-retouching' style='display: none;'>
-                        <a> retouching </a>
-
-                    </li>
-                    <li id='tab-reviews'>
-                        <a> kind words </a>
-
-                    </li>
-                    <li id='tab-contact'>
-                        <a> contact </a>
-                    </li>
-                </ul>
+    <div id='left-col'>
+        <div>
+            <div id='logo'>
             </div>
-            <div id='footer'>
-                <div id="version" style="display: none; color: #EC3F12; cursor: pointer;" rel="tooltip" title="Release">
-                    v1.0.2;
-                </div>
-                &copy;2021 Bryce A. Evans
-            </div>
-
-        </div>
-
-        <div id='page-contact' class='info-page hidden'>
-            <div id='contact-header' class='info-header'>
-                contact
-            </div>
-            <div id="contact-photopile">
-                <div id='polaroid1' class='polaroid'>
-                    <div></div>
-                </div>
-                <div id='polaroid2'class='polaroid'>
-                    <div></div>
-                </div>
-                <div id='polaroid3' class='polaroid' >
-                    <div></div>
-                </div>
-            </div>
-            <div id='contact-info'>
-
-                <a class='extern' href='mailto:contact@bryce.photo'>contact@bryce.photo</a>
-                <br>
-                206.496.9903
-                <br>
-                <a class='extern' href='https://www.facebook.com/pages/Bryce-Evans-Photography/679902178768415'>FB @ Bryce Evans Photography</a>
-            </div>
-        </div>
-        <div id='reviews' class='info-page hidden' style='position: fixed;'>
-            <div id='reviews-header' class='info-header'>
-                kind words
-            </div>
-
-            <ul id="review-list">
-
-                <li class='review'>
-                    <div class='review-img'
-                    style="background-image:url(https://farm4.staticflickr.com/3766/13863343153_287d24bf35_z.jpg); background-image: url(https://farm8.staticflickr.com/7134/13906616363_956974d1f1_z_d.jpg)"></div>
-
-                    <div class='review-quote'>
-                        "The photos that Bryce took at Rhythms of China were beautiful. Movement and dance are extremely difficult to photograph, but he managed to capture our dancers and colorful props with great clarity and vivid detail. These images truly showcase the artistry of both the performers and the photographer."
-                        <div class='review-author'>
-                            <span>Colleen Fei</span>
-                            <br>
-                            <span>President, Illuminations Dance Troupe</span>
-                        </div>
-                    </div>
+            <div id='mobile-menu'></div>
+            <ul id='menu' class='hidden'>
+                <li id='tab-featured'>
+                    <a> featured </a>
                 </li>
-
-                <li class='review'>
-                    <div class='review-img'
-                    style="background-image:url(https://farm8.staticflickr.com/7068/13947616015_2db67287aa_z.jpg);"></div>
-
-                    <div class='review-quote'>
-                        "I am truly glad that Bryce was hired as a photographer for [Yamatai's] PULSE. His skill, thoughtfulness, and genuine passion for capturing the essences of his subjects are so evident in his work. Everyone loved the final products&mdash; I couldn't have asked for anything better."
-                        <div class='review-author'>
-                            <span>Noreena Lau</span>
-                            <br>
-                            <span>Publicity Chair, Yamatai</span>
-                        </div>
-                    </div>
+                <li id='tab-collage' style="display: none;">
+                    <a> collage </a>
                 </li>
-
-                <li class='review'>
-                    <div class='review-img' style="background-image: url(https://farm8.staticflickr.com/7450/14097015135_193023734b_z.jpg);"></div>
-                    <div class='review-quote'>
-                        "Bryce is a fantastic photographer!  He was a pleasure to work with and took wonderful pictures of our dancers in action that were great in helping promote our group. Everyone in the Cornell Swing Club is so grateful for his excellent work."
-                    </div>
-                    <div class='review-author'>
-                        <span>Isabel Jimenez</span>
-                        <br>
-                        <span> Vice President, Cornell Swing Club</span>
-                    </div>
+                <li class='separator'>
+                    <span style='opacity: 0;'>.</span>
                 </li>
-                <li class='review'>
-                    <div class='review-img' style="background-image: url(https://farm4.staticflickr.com/3868/15342405936_b2fafcd416_z.jpg);"></div>
-                    <div class='review-quote'>
-                        My son's senior pictures turned out awesome!  Bryce is not only professional but very easy to work with. He captures what you are looking for in his pictures&mdash; I will definitely call on him again.
-                    </div>
-                    <div class='review-author'>
-                        <span>Dawn</span>
-
-                    </div>
+                <li id='tab-portraits'>
+                    <a>portraits </a>
                 </li>
-
-                <li class='review'>
-                    <div class='review-img' style="background-position-x: -4.5em; background-image: url(https://farm3.staticflickr.com/2941/15388119531_9b56d70c2f_z.jpg);"></div>
-                    <div class='review-quote'>
-                        "I LOVE THEM!  I'm soooo happy, I can't even explain how happy I am. They're so lovely and I had a lot of fun too! Again, thank you so much."
-                    </div>
-                    <div class='review-author'>
-                        <span>Laura</span>
-
-                    </div>
+                <li id='tab-performances'>
+                    <a>performances </a>
                 </li>
-
+                <li id='tab-international'>
+                    <a>international</a>
+                </li>
+                <li id='tab-cats'>
+                    <a>cats</a>
+                </li>
+                <li id='tab-recent'>
+                    <a>recent </a>
+                </li>
+                <li class='separator'>
+                    <span style='opacity: 0;'>.</span>
+                </li>
+                <li id='tab-about'>
+                    <a> about </a>
+                </li>
+                <li id='tab-reviews'>
+                    <a> kind words </a>
+                </li>
+                <li id='tab-contact'>
+                    <a> contact </a>
+                </li>
             </ul>
-
-            <div style="width: 100%; max-width: 500px; height: 1000px"></div>
-
+        </div>
+        <div id='footer'>
+            &copy;<span id="copyright-year"></span> Bryce A. Evans
+        </div>
+    </div>
+    <div id='page-contact' class='info-page hidden'>
+        <div id='contact-header' class='info-header'>
+            contact
+        </div>
+        <div id="contact-photopile">
+            <div id='polaroid1' class='polaroid'>
+                <div></div>
+            </div>
+            <div id='polaroid2' class='polaroid'>
+                <div></div>
+            </div>
+            <div id='polaroid3' class='polaroid'>
+                <div></div>
+            </div>
+        </div>
+        <div id='contact-info'>
+            <a class='extern' href='mailto:contact@bryce.photo'>contact@bryce.photo</a>
+            <br>
+            206.496.9903
+            <br>
+            <a class='extern' href='https://www.facebook.com/pages/Bryce-Evans-Photography/679902178768415'>FB @ Bryce
+                Evans Photography</a>
+        </div>
+    </div>
+    <div id='reviews' class='info-page hidden' style='position: fixed;'>
+        <div id='reviews-header' class='info-header'>
+            kind words
         </div>
 
-        <div id='page-about' class='info-page hidden' >
-            <div id='about-header' class='info-header'>
-                about
-            </div>
-            <ul id="aboutme">
-                <li class='bio'>
-                    <div class='circle-portrait' style="background-image: url(https://farm4.staticflickr.com/3943/15496954841_20e0fb279e_m.jpg);
+        <ul id="review-list">
+
+            <li class='review'>
+                <div class='review-img'
+                    style="background-image:url(https://farm4.staticflickr.com/3766/13863343153_287d24bf35_z.jpg); background-image: url(https://farm8.staticflickr.com/7134/13906616363_956974d1f1_z_d.jpg)">
+                </div>
+
+                <div class='review-quote'>
+                    "The photos that Bryce took at Rhythms of China were beautiful. Movement and dance are extremely
+                    difficult to photograph, but he managed to capture our dancers and colorful props with great clarity
+                    and vivid detail. These images truly showcase the artistry of both the performers and the
+                    photographer."
+                    <div class='review-author'>
+                        <span>Colleen Fei</span>
+                        <br>
+                        <span>President, Illuminations Dance Troupe</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class='review'>
+                <div class='review-img'
+                    style="background-image:url(https://farm8.staticflickr.com/7068/13947616015_2db67287aa_z.jpg);">
+                </div>
+
+                <div class='review-quote'>
+                    "I am truly glad that Bryce was hired as a photographer for [Yamatai's] PULSE. His skill,
+                    thoughtfulness, and genuine passion for capturing the essences of his subjects are so evident in his
+                    work. Everyone loved the final products&mdash; I couldn't have asked for anything better."
+                    <div class='review-author'>
+                        <span>Noreena Lau</span>
+                        <br>
+                        <span>Publicity Chair, Yamatai</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class='review'>
+                <div class='review-img'
+                    style="background-image: url(https://farm8.staticflickr.com/7450/14097015135_193023734b_z.jpg);">
+                </div>
+                <div class='review-quote'>
+                    "Bryce is a fantastic photographer! He was a pleasure to work with and took wonderful pictures of
+                    our dancers in action that were great in helping promote our group. Everyone in the Cornell Swing
+                    Club is so grateful for his excellent work."
+                </div>
+                <div class='review-author'>
+                    <span>Isabel Jimenez</span>
+                    <br>
+                    <span> Vice President, Cornell Swing Club</span>
+                </div>
+            </li>
+            <li class='review'>
+                <div class='review-img'
+                    style="background-image: url(https://farm4.staticflickr.com/3868/15342405936_b2fafcd416_z.jpg);">
+                </div>
+                <div class='review-quote'>
+                    My son's senior pictures turned out awesome! Bryce is not only professional but very easy to work
+                    with. He captures what you are looking for in his pictures&mdash; I will definitely call on him
+                    again.
+                </div>
+                <div class='review-author'>
+                    <span>Dawn</span>
+
+                </div>
+            </li>
+            <li class='review'>
+                <div class='review-img'
+                    style="background-position-x: -4.5em; background-image: url(https://farm3.staticflickr.com/2941/15388119531_9b56d70c2f_z.jpg);">
+                </div>
+                <div class='review-quote'>
+                    "I LOVE THEM! I'm soooo happy, I can't even explain how happy I am. They're so lovely and I had a
+                    lot of fun too! Again, thank you so much."
+                </div>
+                <div class='review-author'>
+                    <span>Laura</span>
+                </div>
+            </li>
+        </ul>
+        <div style="width: 100%; max-width: 500px; height: 1000px"></div>
+    </div>
+    <div id='page-about' class='info-page hidden'>
+        <div id='about-header' class='info-header'>
+            about
+        </div>
+        <ul id="aboutme">
+            <li class='bio'>
+                <div class='circle-portrait' style="background-image: url(https://farm4.staticflickr.com/3943/15496954841_20e0fb279e_m.jpg);
                     "></div>
-                    <div class='text-body'>
-                        I've pursued a number of art forms over the years, from pencil sketches, to painting,
-                        to range of digital media, but something about each one just wasn't quite right for me.
-                        Then I found photography.
+                <div class='text-body'>
+                    I've pursued a number of art forms over the years, from pencil sketches, to painting,
+                    to range of digital media, but something about each one just wasn't quite right for me.
+                    Then I found photography.
 
-                        <br>
-                        <br>
+                    <br>
+                    <br>
 
-                        Photography is powerful. Photos allows anyone to share their perspective 
-                        and tell their story. It transports the viewer to far-off places,
-                        from a foreign country, to distant friends, to a time in their own life years ago.
-                        Powerful photography is in telling a story, sparking emotion, and making connections.
-                        I love photography because nothing is more rewarding than seeing the power of photos
-                        bringing people together.
+                    Photography is powerful. Photos allows anyone to share their perspective
+                    and tell their story. It transports the viewer to far-off places,
+                    from a foreign country, to distant friends, to a time in their own life years ago.
+                    Powerful photography is in telling a story, sparking emotion, and making connections.
+                    I love photography because nothing is more rewarding than seeing the power of photos
+                    bringing people together.
 
-                        <br>
-                        <br>
-                        
-                        I hope that these ideas shine through in all of my work. Photography has showed me so much
-                        but there's always more to do. New people to meet. New moments to capture. New stories to tell.
-                    </div>
-                    <div class='review-author'>
-                        <span>Bryce Evans</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id='stage'>
-            <ul id='photo-col'></ul>
-        </div>
-        <div id='collage'>
-            <ul id='collage-container'>
+                    <br>
+                    <br>
 
-            </ul>
-        </div>
-        <div id='viewer' style="display: none;">
-            <img id='viewer-main'  src='' style='display: none;'/>
-            <ul class='tiles' style='display:none;'>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <ul class='exif' style='display:none;'>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+                    I hope that these ideas shine through in all of my work. Photography has showed me so much
+                    but there's always more to do. New people to meet. New moments to capture. New stories to tell.
+                </div>
+                <div class='review-author'>
+                    <span>Bryce Evans</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id='stage'>
+        <ul id='photo-col'></ul>
+    </div>
+    <div id='collage'>
+        <ul id='collage-container'>
 
-        <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        </ul>
+    </div>
+    <div id='viewer' style="display: none;">
+        <img id='viewer-main' src='' style='display: none;' />
+        <ul class='tiles' style='display:none;'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class='exif' style='display:none;'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 
-        <script src="masonry/bower_components/classie/classie.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="masonry/bower_components/classie/classie.js"></script>
+    <script src="masonry/bower_components/eventie/eventie.js"></script>
+    <script src="masonry/bower_components/doc-ready/doc-ready.js"></script>
+    <script src="masonry/bower_components/get-style-property/get-style-property.js"></script>
+    <script src="masonry/bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="masonry/bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="masonry/bower_components/get-size/get-size.js"></script>
+    <script src="masonry/bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="masonry/bower_components/matches-selector/matches-selector.js"></script>
+    <script src="masonry/bower_components/outlayer/item.js"></script>
+    <script src="masonry/bower_components/outlayer/outlayer.js"></script>
+    <script src="masonry/bower_components/masonry/masonry.js"></script>
+    <script src="masonry/js/controller.js"></script>
 
-        <script src="masonry/bower_components/eventie/eventie.js"></script>
+</body>
 
-        <script src="masonry/bower_components/doc-ready/doc-ready.js"></script>
-
-        <script src="masonry/bower_components/get-style-property/get-style-property.js"></script>
-
-        <script src="masonry/bower_components/eventEmitter/EventEmitter.js"></script>
-
-        <script src="masonry/bower_components/imagesloaded/imagesloaded.js"></script>
-
-        <script src="masonry/bower_components/get-size/get-size.js"></script>
-
-        <script src="masonry/bower_components/jquery-bridget/jquery.bridget.js"></script>
-
-        <script src="masonry/bower_components/matches-selector/matches-selector.js"></script>
-
-        <script src="masonry/bower_components/outlayer/item.js"></script>
-
-        <script src="masonry/bower_components/outlayer/outlayer.js"></script>
-
-        <script src="masonry/bower_components/masonry/masonry.js"></script>
-
-        <script src="masonry/js/controller.js"></script>
-
-    </body>
 </html>
