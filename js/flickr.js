@@ -120,7 +120,6 @@ genLinksFromStream = function(display) {
 // generates all links to a set
 // displays the set on stage if display = true
 genSetLinks = function(set, display) {
-
     if (set.name === 'stream') {
         genLinksFromStream(display);
         return;
@@ -143,24 +142,30 @@ genSetLinks = function(set, display) {
             photoset_id : set.id,
         }
     }).done( function(response) {
+        // TEST DELAY: Wait 5 seconds before showing photos (non-blocking)
+        setTimeout(function() {
+            processPhotosResponse(response, display);
+        }, 5000); // 5 second delay to see skeleton loaders
+    });
+}
 
-        const data = eval(response);
-        const photos = data.photoset.photo;
-        for (var i = 0; i < photos.length; i++) {
-            var photo = new Photo(photos[i]);
-            for (key in sets) {
-                if (sets[key].id == data.photoset.id) {
-                    sets[key].photos.push(photo);
-                    allLinks[photo.id] = photo.url;
-                }
+// Helper function to process photo responses
+function processPhotosResponse(response, display) {
+    const data = eval(response);
+    const photos = data.photoset.photo;
+    for (var i = 0; i < photos.length; i++) {
+        var photo = new Photo(photos[i]);
+        for (key in sets) {
+            if (sets[key].id == data.photoset.id) {
+                sets[key].photos.push(photo);
+                allLinks[photo.id] = photo.url;
             }
         }
+    }
 
-        if (display) {
-            displaySet(set);
-        }
-
-    }.bind(this));
+    if (display) {
+        displaySet(sets[Object.keys(sets).find(key => sets[key].id == data.photoset.id)]);
+    }
 }
 
 // Gets the links to a set
@@ -279,13 +284,66 @@ populateCollage = function() {
     }
 }
 
+// creates skeleton loader placeholders
+createSkeletonLoaders = function(count) {
+    clearPhotos();
+
+    // reset scroll to top
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+    // Create skeleton placeholders with varying heights for visual interest
+    // 2/3 portrait (ratio < 1), 1/3 landscape (ratio > 1)
+    const aspectRatios = [
+        0.67,  // portrait (2:3)
+        0.75,  // portrait (3:4)
+        1.5,   // landscape (3:2)
+        0.7,   // portrait
+        0.8,   // portrait (4:5)
+        0.65,  // portrait
+        1.33,  // landscape (4:3)
+        0.72,  // portrait
+        0.68   // portrait
+    ];
+
+    for (let i = 0; i < count; i++) {
+        const ratio = aspectRatios[i % aspectRatios.length];
+        const height = Math.floor(UI.photo_width / ratio);
+        $('#photo-col').append(
+            `<li class="stage-img skeleton-loader" id="skeleton-${i}" style="width: ${UI.photo_width}px; height: ${height}px; opacity: 0;"></li>`
+        );
+    }
+
+    // Initialize masonry with instant layout (no animation) for skeleton loaders
+    const skeletonSettings = Object.assign({}, UI.msnry_settings, {
+        isLayoutInstant: true  // Disable animation for skeleton positioning
+    });
+    UI.msnry = new Masonry(UI.msnry_container, skeletonSettings);
+    UI.msnry.bindResize();
+
+    // Layout instantly, then fade in skeletons after positioned
+    UI.msnry.layout();
+
+    // Fade in skeletons after they're positioned (small delay to ensure layout is done)
+    setTimeout(function() {
+        $('.skeleton-loader').css({
+            'opacity': '1',
+            'transition': 'opacity 0.3s ease-in'
+        });
+    }, 50);
+}
+
 // populates the stage with the photos from <Obj> set_data
 populatePhotos = function(set_data) {
     // load if not loaded yet
     if (set_data.photos.length === 0) {
+        // Show skeleton loaders while fetching photos
+        createSkeletonLoaders(10); // Show 10 placeholder skeletons
         genSetLinks(set_data, true);
         return;
     }
+
+    // Remove skeleton loaders if they exist
+    $('.skeleton-loader').remove();
 
     // load in masonry
     UI.msnry = new Masonry(UI.msnry_container, UI.msnry_settings);
