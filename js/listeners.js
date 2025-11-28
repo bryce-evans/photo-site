@@ -221,6 +221,15 @@ $(document).ready(function() {
     UI.displayContact = function() {
         UI.setNavAnchor('contact');
         swapDisplayTo('#page-contact');
+
+        // Restart polaroid animations every time contact tab is shown
+        const polaroids = ['#polaroid1', '#polaroid2', '#polaroid3'];
+        polaroids.forEach(function(id) {
+            const elem = $(id);
+            elem.css('animation', 'none');
+            elem[0].offsetHeight;
+            elem.css('animation', '');
+        });
     }
     // MOBILE LISTENERS
     if (UI.device) {
