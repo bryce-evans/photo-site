@@ -21,8 +21,9 @@ ui = function() {
         // load in masonry
         this.msnry
         this.msnry_container = document.querySelector('#photo-col');
-        this.photo_width = Math.min(410, Math.max(200, screen.width - 400) / 3);
-        $('#stage').width(this.photo_width * 3 + 15);
+        this.gutter = 4;
+        this.photo_width = Math.min(410, Math.max(200, (screen.width - 400 - this.gutter * 2) / 3));
+        $('#stage').width(this.photo_width * 3 + this.gutter * 2);
         this.msnry_settings = {
             itemSelector : '.stage-img',
             isLayoutInstant : false,
@@ -34,8 +35,8 @@ ui = function() {
                 opacity : 1,
                 transform : "scale(1)"
             },
-            // 5px padding
-            columnWidth : this.device ? screen.width : this.photo_width + 5,
+            columnWidth : this.device ? screen.width : this.photo_width,
+            gutter: this.gutter,
         };
 
     }
@@ -126,17 +127,6 @@ $(document).ready(function() {
         $('#viewer-main').fadeOut();
         //$('body').removeClass('stop-scroll');
         $('#stage').removeClass('viewer-on');
-    });
-
-    // Close viewer on ESC key
-    $(document).keydown(function(e) {
-        if (e.key === 'Escape' || e.keyCode === 27) {
-            if ($('#viewer').is(':visible')) {
-                $('#viewer').fadeOut();
-                $('#viewer-main').fadeOut();
-                $('#stage').removeClass('viewer-on');
-            }
-        }
     });
 
     // hides current display and shows new one

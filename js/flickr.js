@@ -306,10 +306,12 @@ createSkeletonLoaders = function(count) {
     ];
 
     for (let i = 0; i < count; i++) {
-        const ratio = aspectRatios[i % aspectRatios.length];
+        // On mobile, use fixed 0.7 aspect ratio; on desktop, vary aspect ratios
+        const ratio = UI.device ? 0.7 : aspectRatios[i % aspectRatios.length];
         const height = Math.floor(UI.photo_width / ratio);
+        const widthStyle = UI.device ? 'width: 100%;' : `width: ${UI.photo_width}px;`;
         $('#photo-col').append(
-            `<li class="stage-img skeleton-loader" id="skeleton-${i}" style="width: ${UI.photo_width}px; height: ${height}px; opacity: 0;"></li>`
+            `<li class="stage-img skeleton-loader" id="skeleton-${i}" style="${widthStyle} height: ${height}px; opacity: 0;"></li>`
         );
     }
 
