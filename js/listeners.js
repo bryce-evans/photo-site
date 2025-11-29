@@ -128,6 +128,17 @@ $(document).ready(function() {
         $('#stage').removeClass('viewer-on');
     });
 
+    // Close viewer on ESC key
+    $(document).keydown(function(e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            if ($('#viewer').is(':visible')) {
+                $('#viewer').fadeOut();
+                $('#viewer-main').fadeOut();
+                $('#stage').removeClass('viewer-on');
+            }
+        }
+    });
+
     // hides current display and shows new one
     // e.g. stage, about, other info etc
     swapDisplayTo = function(id) {
